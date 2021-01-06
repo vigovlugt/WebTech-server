@@ -1,9 +1,7 @@
-<?php namespace Models;
+<?php
 
-class User {
+class User
+{
   public $id;
-  private $name;
+  public $name;
 }
-
-
-?>
