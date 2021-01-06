@@ -1,9 +1,10 @@
 <?php
-
 require_once("connection.php");
 
 require_once("repositories/UserRepository.php");
 require_once("controllers/UserController.php");
+
+header('Access-Control-Allow-Origin: *');
 
 $repository = new UserRepository($conn);
 $controller = new UserController($repository);
