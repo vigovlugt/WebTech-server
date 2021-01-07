@@ -3,7 +3,7 @@ require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/services/AuthService.php");
 require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/services/SpotifyService.php");
 require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/repositories/UserRepository.php");
 
-class SpotifyProfileController
+class SpotifyStatsController
 {
   private $service;
   private $repository;
@@ -39,9 +39,9 @@ class SpotifyProfileController
 
     $accessToken = $data["spotifyAccessToken"];
 
-    $spotifyProfile = $this->service->getUserInformation($accessToken);
+    $topData = $this->service->getTopByTypeForPeriod($accessToken, "tracks", "medium_term");
 
-    return $this->return_json($spotifyProfile);
+    return $this->return_json($topData);
   }
 
   public function return_json($data)
