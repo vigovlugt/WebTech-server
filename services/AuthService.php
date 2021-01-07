@@ -1,8 +1,8 @@
 <?php
 
-require_once("services/SpotifyAuthService.php");
-require_once("repositories/UserRepository.php");
-require_once("services/SpotifyService.php");
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/services/SpotifyAuthService.php");
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/repositories/UserRepository.php");
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/services/SpotifyService.php");
 
 class AuthService
 {

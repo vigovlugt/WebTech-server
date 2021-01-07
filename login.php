@@ -1,6 +1,6 @@
 <?php
 
-require_once("utils/Requests.php");
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/utils/Requests.php");
 
 $code_verifier = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 $code_challenge_base64 = "KBZZeIjkoNOja4K4MxarMmgOuPAPjNO5BNaBJG0oWg4";

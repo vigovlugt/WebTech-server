@@ -1,7 +1,7 @@
 <?php
 
-require_once("models/User.php");
-require_once("services/AuthService.php");
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/models/User.php");
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/services/AuthService.php");
 
 class UserController
 {

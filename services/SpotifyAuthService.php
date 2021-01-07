@@ -1,8 +1,8 @@
 <?php
 
-require_once("utils/Requests.php");
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/utils/Requests.php");
 
-require_once("models/User.php");
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/models/User.php");
 
 class SpotifyAuthService
 {

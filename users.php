@@ -1,8 +1,8 @@
 <?php
-require_once("./constants/connection.php");
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/./constants/connection.php");
 
-require_once("./repositories/UserRepository.php");
-require_once("./controllers/UserController.php");
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/./repositories/UserRepository.php");
+require_once($_SERVER['CONTEXT_DOCUMENT_ROOT'] . "/./controllers/UserController.php");
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
