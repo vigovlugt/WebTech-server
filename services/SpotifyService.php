@@ -1,6 +1,6 @@
 <?php
 
-require_once("../utils/Requests.php");
+require_once("utils/Requests.php");
 
 class SpotifyService
 {

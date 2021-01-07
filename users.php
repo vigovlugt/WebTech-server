@@ -1,10 +1,11 @@
 <?php
-require_once("constants/connection.php");
+require_once("./constants/connection.php");
 
-require_once("repositories/UserRepository.php");
-require_once("controllers/UserController.php");
+require_once("./repositories/UserRepository.php");
+require_once("./controllers/UserController.php");
 
-header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
 
 $repository = new UserRepository($conn);
 $controller = new UserController($repository);

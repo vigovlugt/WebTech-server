@@ -1,8 +1,8 @@
 <?php
 
-require_once("../services/SpotifyAuthService.php");
-require_once("../repositories/UserRepository.php");
-require_once("../services/SpotifyService.php");
+require_once("services/SpotifyAuthService.php");
+require_once("repositories/UserRepository.php");
+require_once("services/SpotifyService.php");
 
 class AuthService
 {
@@ -63,7 +63,7 @@ class AuthService
   }
 
   // https://jwt.io/
-  public function createAccessToken($userId, $userName)
+  public static function createAccessToken($userId, $userName)
   {
     $header = json_encode(array(
       "typ" => "jwt",
@@ -75,23 +75,66 @@ class AuthService
       "name" => $userName
     ));
 
-    $bs64Header = $this->base64EncodeUrl($header);
-    $bs64Payload = $this->base64EncodeUrl($payload);
+    $bs64Header = AuthService::base64UrlEncode($header);
+    $bs64Payload = AuthService::base64UrlEncode($payload);
 
     $signature = hash_hmac('sha256', $bs64Header . "." . $bs64Payload, AuthService::$jwtSecret, true);
 
-    $bs64Signature = $this->base64EncodeUrl($signature);
+    $bs64Signature = AuthService::base64UrlEncode($signature);
 
     return $bs64Header . "." . $bs64Payload . "." . $bs64Signature;
   }
 
-  public function verifyAccessToken($token)
+  public static function verifyAccessToken($token)
   {
-    // TODO: Verify access token on every request.
+    $parts = explode(".", $token);
+    $bs64Header = $parts[0];
+    $bs64Payload = $parts[1];
+    $bs64Signature = $parts[2];
+
+    $serverSignature = hash_hmac('sha256', $bs64Header . "." . $bs64Payload, AuthService::$jwtSecret, true);
+    $bs64ServerSignature = AuthService::base64UrlEncode($serverSignature);
+
+    return $bs64Signature == $bs64ServerSignature;
   }
 
-  public static function base64EncodeUrl($string)
+  public static function getJwtPayload($token)
+  {
+    $parts = explode(".", $token);
+    $bs64Payload = $parts[1];
+
+    $jsonPayload = AuthService::base64UrlDecode($bs64Payload);
+    $payload = json_decode($jsonPayload);
+
+    return $payload;
+  }
+
+  public static function getUserId()
+  {
+    $headers = apache_request_headers();
+    if (!isset($headers["Authorization"])) {
+      return null;
+    }
+
+    $authorizationHeader = $headers["Authorization"];
+
+    $accessToken = explode(" ", $authorizationHeader)[1];
+    if (!AuthService::verifyAccessToken($accessToken)) {
+      return null;
+    }
+
+    $payload = AuthService::getJwtPayload($accessToken);
+
+    return $payload->sub;
+  }
+
+  public static function base64UrlEncode($string)
   {
     return str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($string));
+  }
+
+  public static function base64UrlDecode($string)
+  {
+    return base64_decode(str_replace(['-', '_'], ['+', '/'], $string));
   }
 }

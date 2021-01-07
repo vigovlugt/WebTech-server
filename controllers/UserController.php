@@ -1,6 +1,7 @@
 <?php
 
 require_once("models/User.php");
+require_once("services/AuthService.php");
 
 class UserController
 {
@@ -14,6 +15,13 @@ class UserController
   public function handle_request()
   {
     $method = $_SERVER['REQUEST_METHOD'];
+
+    $userId = AuthService::getUserId();
+    if ($userId == null) {
+      echo $userId;
+      // http_response_code(401);
+      return;
+    }
 
     switch ($method) {
       case "GET":
