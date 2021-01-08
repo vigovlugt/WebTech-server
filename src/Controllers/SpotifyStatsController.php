@@ -17,7 +17,7 @@ class SpotifyStatsController
     $this->repository = $repository;
   }
 
-  public function handle_request()
+  public function handleRequest()
   {
     $method = $_SERVER['REQUEST_METHOD'];
 
@@ -38,11 +38,9 @@ class SpotifyStatsController
 
   public function get($userId)
   {
-    $data = $this->repository->getSpotifyTokens($userId);
+    $user = $this->repository->get($userId);
 
-    $accessToken = $data["spotifyAccessToken"];
-
-    $topData = $this->service->getTopByTypeForPeriod($accessToken, "tracks", "medium_term");
+    $topData = $this->service->getTopByTypeForPeriod($user, "tracks", "medium_term");
 
     return $this->return_json($topData);
   }

@@ -5,6 +5,7 @@ namespace SpotiSync\Controllers;
 use SpotiSync\Models\User;
 use SpotiSync\Repositories\UserRepository;
 use SpotiSync\Services\AuthService;
+use SpotiSync\ViewModels\UserViewModel;
 
 class UserController
 {
@@ -32,36 +33,28 @@ class UserController
           return $this->get($_GET['id']);
         }
 
-        return $this->getAll();;
-      case "POST":
-        return $this->create();
+        return $this->getAll();
     }
   }
 
   public function get($id)
   {
     $user = $this->repository->get($id);
+    $userViewModel = new UserViewModel($user);
 
-    return $this->return_json($user);
+    return $this->return_json($userViewModel);
   }
 
   public function getAll()
   {
     $users = $this->repository->getAll();
+    $userViewModels = [];
 
-    return $this->return_json($users);
-  }
+    for ($i = 0; $i < count($users); $i++) {
+      array_push($userViewModels, new UserViewModel($users[$i]));
+    }
 
-  public function create()
-  {
-    $data = json_decode(file_get_contents('php://input'), true);
-
-    $user = new User();
-    $user->name = $data["name"];
-
-    $newUser = $this->repository->create($user);
-
-    return $this->return_json($newUser);
+    return $this->return_json($userViewModels);
   }
 
   public function return_json($data)

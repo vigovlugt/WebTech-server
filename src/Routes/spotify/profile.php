@@ -10,13 +10,15 @@ use SpotiSync\Constants\Connection;
 use SpotiSync\Repositories\UserRepository;
 use SpotiSync\Services\SpotifyService;
 use SpotiSync\Controllers\SpotifyProfileController;
+use SpotiSync\Services\SpotifyAuthService;
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 $connection = Connection::getConnection();
-$repository = new UserRepository($connection);
-$service = new SpotifyService();
-$controller = new SpotifyProfileController($service, $repository);
+$userRepository = new UserRepository($connection);
+$spotifyAuthService = new SpotifyAuthService();
+$service = new SpotifyService($spotifyAuthService, $userRepository);
+$controller = new SpotifyProfileController($service, $userRepository);
 
-$controller->handle_request();
+$controller->handleRequest();

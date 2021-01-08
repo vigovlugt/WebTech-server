@@ -17,7 +17,7 @@ class SpotifyProfileController
     $this->repository = $repository;
   }
 
-  public function handle_request()
+  public function handleRequest()
   {
     $method = $_SERVER['REQUEST_METHOD'];
 
@@ -38,11 +38,9 @@ class SpotifyProfileController
 
   public function get($userId)
   {
-    $data = $this->repository->getSpotifyTokens($userId);
+    $user = $this->repository->get($userId);
 
-    $accessToken = $data["spotifyAccessToken"];
-
-    $spotifyProfile = $this->service->getUserInformation($accessToken);
+    $spotifyProfile = $this->service->getUserInformation($user);
 
     return $this->return_json($spotifyProfile);
   }

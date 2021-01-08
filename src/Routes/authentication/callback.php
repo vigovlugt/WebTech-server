@@ -13,10 +13,10 @@ use SpotiSync\Services\SpotifyAuthService;
 use SpotiSync\Services\SpotifyService;
 
 $connection = Connection::getConnection();
-$repo = new UserRepository($connection);
+$userRepository = new UserRepository($connection);
 $spotifyAuthService = new SpotifyAuthService();
-$spotifyService = new SpotifyService();
+$spotifyService = new SpotifyService($spotifyAuthService, $userRepository);
 
-$authService = new AuthService($repo, $spotifyAuthService, $spotifyService);
+$authService = new AuthService($userRepository, $spotifyAuthService, $spotifyService);
 
 $authService->handleAutorizationCallback();

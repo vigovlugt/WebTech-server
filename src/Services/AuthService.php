@@ -33,7 +33,7 @@ class AuthService
       return;
     }
 
-    $spotifyUser = $this->spotifyService->getUserInformation($tokenData->access_token);
+    $spotifyUser = $this->spotifyService->getUserInformationByToken($tokenData->access_token);
 
     // Get SpotiSync user by spotify user id.
     $user = $this->userRepository->getBySpotifyId($spotifyUser->id);
@@ -44,10 +44,10 @@ class AuthService
     }
 
     // Save spotify tokens to database.
-    $this->userRepository->setSpotifyTokens($user["id"], $tokenData->access_token, $tokenData->refresh_token);
+    $this->userRepository->setSpotifyTokens($user->id, $tokenData->access_token, $tokenData->refresh_token);
 
     // Create SpotiSync auth token.
-    $accessToken = $this->createAccessToken($user["id"], $user["name"]);
+    $accessToken = $this->createAccessToken($user);
 
     $url = "https://agile114.science.uva.nl?accessToken=" . $accessToken;
 
@@ -64,7 +64,7 @@ class AuthService
   }
 
   // https://jwt.io/
-  public static function createAccessToken($userId, $userName)
+  public static function createAccessToken(User $user)
   {
     $header = json_encode(array(
       "typ" => "jwt",
@@ -72,8 +72,8 @@ class AuthService
     ));
 
     $payload = json_encode(array(
-      "sub" => $userId,
-      "name" => $userName
+      "sub" => $user->id,
+      "name" => $user->name
     ));
 
     $bs64Header = AuthService::base64UrlEncode($header);

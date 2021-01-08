@@ -16,7 +16,7 @@ class UserRepository
 
   public function get(int $id)
   {
-    $query = $this->connection->prepare("SELECT id, name, spotifyId FROM users WHERE id = ?");
+    $query = $this->connection->prepare("SELECT * FROM users WHERE id = ?");
     $query->bind_param("i", $id);
 
     $query->execute();
@@ -26,12 +26,17 @@ class UserRepository
 
     $result = $query->get_result();
 
-    return $result->fetch_assoc();
+    $data = $result->fetch_assoc();
+    if ($data === null) {
+      return null;
+    }
+
+    return new User($data);
   }
 
   public function getBySpotifyId($spotifyId)
   {
-    $query = $this->connection->prepare("SELECT id, name FROM users WHERE spotifyId = ?");
+    $query = $this->connection->prepare("SELECT id, name, spotifyId FROM users WHERE spotifyId = ?");
     $query->bind_param("s", $spotifyId);
 
     $query->execute();
@@ -41,7 +46,12 @@ class UserRepository
 
     $result = $query->get_result();
 
-    return $result->fetch_assoc();
+    $data = $result->fetch_assoc();
+    if ($data === null) {
+      return null;
+    }
+
+    return new User($data);
   }
 
   public function getAll()
@@ -58,7 +68,7 @@ class UserRepository
     $users = [];
 
     while ($user = $result->fetch_assoc()) {
-      array_push($users, $user);
+      array_push($users, new User($user));
     }
 
     return $users;
@@ -91,20 +101,5 @@ class UserRepository
     }
 
     return $query->affected_rows > 0;
-  }
-
-  public function getSpotifyTokens($userId)
-  {
-    $query = $this->connection->prepare("SELECT spotifyAccessToken, spotifyRefreshToken FROM users WHERE id = ?");
-    $query->bind_param("i", $userId);
-
-    $query->execute();
-    if ($query->error) {
-      trigger_error($query->error);
-    }
-
-    $result = $query->get_result();
-
-    return $result->fetch_assoc();
   }
 }

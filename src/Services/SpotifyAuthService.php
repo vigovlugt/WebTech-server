@@ -38,4 +38,21 @@ class SpotifyAuthService
 
     return $result;
   }
+
+  public function refreshAccessToken($refreshToken)
+  {
+    $url = "https://accounts.spotify.com/api/token";
+
+    $data = array(
+      "client_id" => SpotifyAuthService::$clientId,
+      "client_secret" => SpotifyAuthService::$clientSecret,
+      "grant_type" => "refresh_token",
+      "refresh_token" => $refreshToken
+    );
+
+    $result = Requests::post($url, $data);
+    $result = json_decode($result);
+
+    return $result->access_token;
+  }
 }
