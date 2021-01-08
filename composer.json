@@ -1,0 +1,15 @@
+{
+    "name": "spotisync/server",
+    "authors": [
+        {
+            "name": "SpotiSync Server",
+            "email": "server@example.com"
+        }
+    ],
+    "autoload":{
+        "psr-4": {
+            "SpotiSync\\": "./src"
+        }
+    },
+    "require": {}
+}
