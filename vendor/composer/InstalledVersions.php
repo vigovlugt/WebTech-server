@@ -29,7 +29,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '331289e8be49e1303b276d91123628cefcdab3dc',
+    'reference' => '9024ec47a95662d79537c7ea2ef5c1d4b8d9cc4b',
     'name' => 'spotisync/server',
   ),
   'versions' => 
@@ -41,7 +41,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '331289e8be49e1303b276d91123628cefcdab3dc',
+      'reference' => '9024ec47a95662d79537c7ea2ef5c1d4b8d9cc4b',
     ),
   ),
 );
