@@ -14,10 +14,10 @@ class UserRepository
     $this->connection = $connection;
   }
 
-  public function get(int $id)
+  public function get(int $userId)
   {
     $query = $this->connection->prepare("SELECT * FROM users WHERE id = ?");
-    $query->bind_param("i", $id);
+    $query->bind_param("i", $userId);
 
     $query->execute();
     if ($query->error) {
@@ -56,7 +56,7 @@ class UserRepository
 
   public function getAll()
   {
-    $query = $this->connection->prepare("SELECT id, name, spotifyId FROM users");
+    $query = $this->connection->prepare("SELECT * FROM users");
 
     $query->execute();
     if ($query->error) {
@@ -91,9 +91,22 @@ class UserRepository
   public function setSpotifyTokens($userId, $accessToken, $refreshToken)
   {
     $query = $this->connection->prepare("UPDATE users SET spotifyAccessToken=?, spotifyRefreshToken=? WHERE id = ?");
-    echo $this->connection->error;
-
     $query->bind_param("ssi", $accessToken, $refreshToken, $userId);
+
+    $query->execute();
+    if ($query->error) {
+      trigger_error($query->error);
+    }
+
+    return $query->affected_rows > 0;
+  }
+
+  public function setOnline($userId, $online = true)
+  {
+    $query = $this->connection->prepare("UPDATE users SET online=? WHERE id = ?");
+
+    $onlineInt = (int)$online;
+    $query->bind_param("ii", $onlineInt, $userId);
 
     $query->execute();
     if ($query->error) {

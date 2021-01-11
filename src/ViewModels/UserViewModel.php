@@ -10,12 +10,14 @@ class UserViewModel
   {
     $this->id = $user->id;
     $this->name = $user->name;
+    $this->online = $user->online;
 
     $this->spotifyId = $user->spotifyId;
   }
 
   public $id;
   public $name;
+  public $online;
 
   public $spotifyId;
 }

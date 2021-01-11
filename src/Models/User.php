@@ -8,6 +8,7 @@ class User
   {
     $this->id = $data["id"];
     $this->name = $data["name"];
+    $this->online = (bool)$data["online"];
 
     $this->spotifyId = $data["spotifyId"];
     $this->spotifyAccessToken = $data["spotifyAccessToken"];
@@ -16,6 +17,7 @@ class User
 
   public $id;
   public $name;
+  public $online;
 
   public $spotifyId;
   public $spotifyAccessToken;

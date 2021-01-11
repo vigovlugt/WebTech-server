@@ -14,8 +14,8 @@ use SpotiSync\Services\SpotifyService;
 
 $connection = Connection::getConnection();
 $userRepository = new UserRepository($connection);
-$spotifyAuthService = new SpotifyAuthService();
-$spotifyService = new SpotifyService($spotifyAuthService, $userRepository);
+$spotifyAuthService = new SpotifyAuthService($userRepository);
+$spotifyService = new SpotifyService($spotifyAuthService);
 
 $authService = new AuthService($userRepository, $spotifyAuthService, $spotifyService);
 

@@ -17,8 +17,8 @@ header("Access-Control-Allow-Headers: *");
 
 $connection = Connection::getConnection();
 $userRepository = new UserRepository($connection);
-$spotifyAuthService = new SpotifyAuthService();
-$service = new SpotifyService($spotifyAuthService, $userRepository);
+$spotifyAuthService = new SpotifyAuthService($userRepository);
+$service = new SpotifyService($spotifyAuthService);
 $controller = new SpotifyProfileController($service, $userRepository);
 
 $controller->handleRequest();

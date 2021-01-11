@@ -2,8 +2,7 @@
     "name": "spotisync/server",
     "authors": [
         {
-            "name": "SpotiSync Server",
-            "email": "server@example.com"
+            "name": "SpotiSync Server"
         }
     ],
     "autoload":{
@@ -12,6 +11,7 @@
         }
     },
     "require": {
-        "php": ">=8.0"
+        "php": ">=8.0",
+        "cboden/ratchet": "^0.4.3"
     }
 }

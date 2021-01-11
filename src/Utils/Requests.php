@@ -4,9 +4,29 @@ namespace SpotiSync\Utils;
 
 class Requests
 {
-  public static function post($url, $data)
+  public static function get($url, $token)
   {
     $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+      "Authorization: Bearer {$token}"
+    ));
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($curl);
+    curl_close($curl);
+
+    return $response;
+  }
+
+  public static function post($url, $data, $token = null)
+  {
+    $curl = curl_init($url);
+
+    if ($token !== null) {
+      curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+        "Authorization: Bearer {$token}"
+      ));
+    }
+
     curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -16,13 +36,24 @@ class Requests
     return $response;
   }
 
-  public static function get($url, $token)
+
+
+  public static function put($url, $data, $token = null)
   {
     $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-      "Authorization: Bearer {$token}"
-    ));
+    curl_setopt($curl, CURLOPT_PUT, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    if ($token !== null) {
+      curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+        "Authorization: Bearer {$token}"
+      ));
+    }
+
+    if ($data !== null) {
+      curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+    }
+
     $response = curl_exec($curl);
     curl_close($curl);
 

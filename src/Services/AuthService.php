@@ -110,16 +110,18 @@ class AuthService
     return $payload;
   }
 
-  public static function getUserId()
+  public static function getUserId(string $accessToken = null)
   {
-    $headers = apache_request_headers();
-    if (!isset($headers["Authorization"])) {
-      return null;
+    if ($accessToken == null) {
+      $headers = apache_request_headers();
+      if (!isset($headers["Authorization"])) {
+        return null;
+      }
+
+      $authorizationHeader = $headers["Authorization"];
+      $accessToken = explode(" ", $authorizationHeader)[1];
     }
 
-    $authorizationHeader = $headers["Authorization"];
-
-    $accessToken = explode(" ", $authorizationHeader)[1];
     if (!AuthService::verifyAccessToken($accessToken)) {
       return null;
     }
