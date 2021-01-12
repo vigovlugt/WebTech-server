@@ -8,6 +8,7 @@ use SpotiSync\Models\User;
 class WsUser
 {
   public User $user;
+  public ?int $roomId;
 
   public int $socketId;
   public ConnectionInterface $connection;

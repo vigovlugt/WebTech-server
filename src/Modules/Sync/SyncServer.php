@@ -64,7 +64,10 @@ class SyncServer implements MessageComponentInterface
         $this->handlePause($user);
         break;
       case MessageType::$CREATE_ROOM:
-        $this->roomService->createRoom($user->user, $message->data);
+        $this->roomService->createRoom($user, $message->data);
+        break;
+      case MessageType::$JOIN_ROOM:
+        $this->roomService->joinRoom($user, $message->data);
         break;
     }
   }
@@ -121,7 +124,7 @@ class SyncServer implements MessageComponentInterface
       echo "LEAVE: {$user->user->id}\n";
 
       $this->userRepository->setOnline($user->user->id, false);
-      unset($this->users[$index]);
+      $this->roomService->leaveRoom($user);
     }
   }
 

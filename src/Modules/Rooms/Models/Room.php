@@ -8,12 +8,30 @@ class Room
   public string $name;
   public int $ownerId;
 
-  public array $users;
+  public array $users = [];
 
   function __construct(int $id, string $name, int $ownerId)
   {
     $this->id = $id;
     $this->name = $name;
     $this->ownerId = $ownerId;
+  }
+
+  public function hasUser(int $id)
+  {
+    foreach ($this->users as $user) {
+      if ($user->id == $id) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  public function removeUser(int $id)
+  {
+    $this->users = array_filter($this->users, function (int $userId) use ($id) {
+      return $userId !== $id;
+    });
   }
 }

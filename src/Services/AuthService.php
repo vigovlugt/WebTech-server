@@ -9,6 +9,8 @@ class AuthService
 {
   private static $jwtSecret = "FJKSDLFJDSKL:jkl";
 
+  private static $jwtVersion = 1;
+
   private $userRepository;
   private $spotifyAuthService;
   private $spotifyService;
@@ -75,7 +77,8 @@ class AuthService
 
     $payload = json_encode(array(
       "sub" => $user->id,
-      "name" => $user->name
+      "name" => $user->name,
+      "v" => AuthService::$jwtVersion
     ));
 
     $bs64Header = AuthService::base64UrlEncode($header);
@@ -95,10 +98,12 @@ class AuthService
     $bs64Payload = $parts[1];
     $bs64Signature = $parts[2];
 
+    $payload = AuthService::getJwtPayload($token);
+
     $serverSignature = hash_hmac('sha256', $bs64Header . "." . $bs64Payload, AuthService::$jwtSecret, true);
     $bs64ServerSignature = AuthService::base64UrlEncode($serverSignature);
 
-    return $bs64Signature == $bs64ServerSignature;
+    return $bs64Signature == $bs64ServerSignature && isset($payload->v) && $payload->v == AuthService::$jwtVersion;
   }
 
   public static function getJwtPayload($token)

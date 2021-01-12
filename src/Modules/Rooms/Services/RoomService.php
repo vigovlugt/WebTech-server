@@ -10,7 +10,7 @@ use SpotiSync\Modules\Sync\SyncServer;
 
 class RoomService
 {
-  private $rooms = [];
+  private array $rooms = [];
 
   private int $nextRoomId = 0;
 
@@ -21,7 +21,7 @@ class RoomService
     $this->syncServer = $syncServer;
   }
 
-  public function createRoom(User $user, object $data)
+  public function createRoom(WsUser $user, object $data)
   {
     if (!isset($data->name)) {
       $data->name = "New room";
@@ -29,7 +29,7 @@ class RoomService
 
     echo "CREATING NEW ROOM: $data->name\n";
 
-    $room = new Room($this->nextRoomId, $data->name, $user->id);
+    $room = new Room($this->nextRoomId, $data->name, $user->user->id);
 
     $this->nextRoomId++;
 
@@ -38,8 +38,53 @@ class RoomService
     $this->syncServer->sendMessageToAll(MessageType::$ROOM_LIST_SYNC, $this->rooms);
   }
 
-  public function syncRooms(WsUser $user)
+
+  public function joinRoom(WsUser $user, object $data)
   {
+    $userId = $user->user->id;
+    $roomId = $data->id;
+    $room = $this->getRoom($roomId);
+
+    $this->leaveRoom($user);
+
+    if (isset($user->roomId)) {
+      $userRoom = $this->getRoom($user->roomId);
+      $userRoom->removeUser($userId);
+    }
+
+    array_push($room->users, $userId);
+    $user->roomId = $roomId;
+
+    $this->syncRooms();
+  }
+
+  public function leaveRoom(WsUser $user)
+  {
+    if (isset($user->roomId)) {
+      $userRoom = $this->getRoom($user->roomId);
+      $userRoom->removeUser($user->user->id);
+    }
+  }
+
+  public function syncRooms(WsUser $user = null)
+  {
+    if (is_null($user)) {
+      $this->syncServer->sendMessageToAll(MessageType::$ROOM_LIST_SYNC, $this->rooms);
+      return;
+    }
+
     $this->syncServer->sendMessage($user, MessageType::$ROOM_LIST_SYNC, $this->rooms);
+  }
+
+
+  public function getRoom(int $id)
+  {
+    foreach ($this->rooms as $room) {
+      if ($room->id == $id) {
+        return $room;
+      }
+    }
+
+    return null;
   }
 }
