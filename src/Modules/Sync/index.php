@@ -4,6 +4,7 @@ use Ratchet\Http\HttpServer;
 use Ratchet\Server\IoServer;
 use Ratchet\WebSocket\WsServer;
 use SpotiSync\Constants\Connection;
+use SpotiSync\Modules\Rooms\Services\RoomService;
 use SpotiSync\Modules\Sync\SyncServer;
 use SpotiSync\Repositories\UserRepository;
 use SpotiSync\Services\AuthService;
@@ -26,11 +27,12 @@ $spotifyAuthService = new SpotifyAuthService($userRepository);
 $spotifyPlayerService = new SpotifyPlayerService($spotifyAuthService);
 $spotifyService = new SpotifyService($spotifyAuthService);
 $authService = new AuthService($userRepository, $spotifyAuthService, $spotifyService);
+$roomService = new RoomService();
 
 $server = IoServer::factory(
   new HttpServer(
     new WsServer(
-      new SyncServer($spotifyPlayerService, $authService, $userRepository),
+      new SyncServer($spotifyPlayerService, $authService, $userRepository, $roomService),
     )
   ),
   3000

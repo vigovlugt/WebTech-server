@@ -41,13 +41,14 @@ class SpotifyProfileController
     $user = $this->repository->get($userId);
 
     $spotifyProfile = $this->service->getUserInformation($user);
-
+    $topData = $this->service->getTopByTypeForPeriod($user, "tracks", "medium_term");
+    $spotifyProfile->data = $topData;
     return $this->return_json($spotifyProfile);
   }
 
-  public function return_json($data)
+  public function return_json($spotifyProfile)
   {
     header('Content-Type: application/json');
-    echo json_encode($data);
+    echo json_encode($spotifyProfile);
   }
 }

@@ -5,6 +5,8 @@ namespace SpotiSync\Modules\Sync;
 use Exception;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
+use SpotiSync\Modules\Rooms\Services\RoomService;
+use SpotiSync\Modules\Sync\Constants\MessageType;
 use SpotiSync\Modules\Sync\Models\WsMessage;
 use SpotiSync\Modules\Sync\Models\WsUser;
 use SpotiSync\Repositories\UserRepository;
@@ -18,12 +20,15 @@ class SyncServer implements MessageComponentInterface
   private SpotifyPlayerService $spotifyPlayerService;
   private AuthService $authService;
   private UserRepository $userRepository;
+  private RoomService $roomService;
 
-  public function __construct(SpotifyPlayerService $spotifyPlayerService, AuthService $authService, UserRepository $userRepository)
+  public function __construct(SpotifyPlayerService $spotifyPlayerService, AuthService $authService, UserRepository $userRepository, RoomService $roomService)
   {
     $this->spotifyPlayerService = $spotifyPlayerService;
     $this->authService = $authService;
     $this->userRepository = $userRepository;
+    $this->roomService = $roomService;
+    $this->roomService->setSyncServer($this);
 
     echo "server running on 3000\n";
   }
@@ -58,6 +63,9 @@ class SyncServer implements MessageComponentInterface
       case "PAUSE":
         $this->handlePause($user);
         break;
+      case MessageType::$CREATE_ROOM:
+        $this->roomService->createRoom($user->user, $message->data);
+        break;
     }
   }
 
@@ -75,13 +83,18 @@ class SyncServer implements MessageComponentInterface
     $user = $this->userRepository->get($userId);
 
     $wsUser = new WsUser($user, $connection);
-
     array_push($this->users, $wsUser);
 
+    $this->handleConnect($wsUser);
+  }
+
+  private function handleConnect(WsUser $wsUser)
+  {
     echo "CONNECT: {$wsUser->user->id}\n";
 
-    $this->userRepository->setOnline($userId, true);
+    $this->userRepository->setOnline($wsUser->user->id, true);
     $this->sendMessage($wsUser, "AUTHENTICATED", null);
+    $this->roomService->syncRooms($wsUser);
   }
 
   public function handlePause(WsUser $user)
@@ -122,6 +135,13 @@ class SyncServer implements MessageComponentInterface
     $json = json_encode($message);
 
     $user->connection->send($json);
+  }
+
+  public function sendMessageToAll(string $type, $data)
+  {
+    foreach ($this->users as $user) {
+      $this->sendMessage($user, $type, $data);
+    }
   }
 
   public static function parseMessage(string $message)
