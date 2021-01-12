@@ -59,6 +59,8 @@ class AuthService
     $user = new User();
     $user->name = $spotifyUser->display_name;
     $user->spotifyId = $spotifyUser->id;
+    trigger_error($spotifyUser->images[0]->url);
+    $user->profileImageUrl = $spotifyUser->images[0]->url;
 
     return $this->userRepository->create($user);
   }

@@ -76,8 +76,8 @@ class UserRepository
 
   public function create(User $user)
   {
-    $query = $this->connection->prepare("INSERT INTO users (name, spotifyId) VALUES (?, ?)");
-    $query->bind_param("ss", $user->name, $user->spotifyId);
+    $query = $this->connection->prepare("INSERT INTO users (name, spotifyId, profileImageUrl) VALUES (?, ?, ?)");
+    $query->bind_param("sss", $user->name, $user->spotifyId, $user->profileImageUrl);
 
     $query->execute();
     if ($query->error) {

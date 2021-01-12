@@ -23,6 +23,10 @@ class RoomService
 
   public function createRoom(User $user, object $data)
   {
+    if (!isset($data->name)) {
+      $data->name = "New room";
+    }
+
     echo "CREATING NEW ROOM: $data->name\n";
 
     $room = new Room($this->nextRoomId, $data->name, $user->id);

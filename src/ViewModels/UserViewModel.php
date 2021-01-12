@@ -11,6 +11,7 @@ class UserViewModel
     $this->id = $user->id;
     $this->name = $user->name;
     $this->online = $user->online;
+    $this->profileImageUrl = $user->profileImageUrl;
 
     $this->spotifyId = $user->spotifyId;
   }
@@ -18,6 +19,7 @@ class UserViewModel
   public $id;
   public $name;
   public $online;
+  public $profileImageUrl;
 
   public $spotifyId;
 }
