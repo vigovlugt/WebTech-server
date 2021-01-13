@@ -3,6 +3,7 @@
 namespace SpotiSync\Modules\Sync;
 
 use Exception;
+use GuzzleHttp\Psr7\Message;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 use SpotiSync\Modules\Rooms\Services\RoomService;
@@ -11,20 +12,17 @@ use SpotiSync\Modules\Sync\Models\WsMessage;
 use SpotiSync\Modules\Sync\Models\WsUser;
 use SpotiSync\Repositories\UserRepository;
 use SpotiSync\Services\AuthService;
-use SpotiSync\Services\SpotifyPlayerService;
 
 class SyncServer implements MessageComponentInterface
 {
   private array $users = [];
 
-  private SpotifyPlayerService $spotifyPlayerService;
   private AuthService $authService;
   private UserRepository $userRepository;
   private RoomService $roomService;
 
-  public function __construct(SpotifyPlayerService $spotifyPlayerService, AuthService $authService, UserRepository $userRepository, RoomService $roomService)
+  public function __construct(AuthService $authService, UserRepository $userRepository, RoomService $roomService)
   {
-    $this->spotifyPlayerService = $spotifyPlayerService;
     $this->authService = $authService;
     $this->userRepository = $userRepository;
     $this->roomService = $roomService;
@@ -33,7 +31,18 @@ class SyncServer implements MessageComponentInterface
     echo "server running on 3000\n";
   }
 
-  public function getUser(int $socketId)
+  public function getUser(int $id)
+  {
+    foreach ($this->users as $user) {
+      if ($user->user->id === $id) {
+        return $user;
+      }
+    }
+
+    return null;
+  }
+
+  public function getUserBySocketId(int $socketId)
   {
     foreach ($this->users as $user) {
       if ($user->socketId === $socketId) {
@@ -48,7 +57,7 @@ class SyncServer implements MessageComponentInterface
   {
     $message = SyncServer::parseMessage($msg);
 
-    $user = $this->getUser($connection->resourceId);
+    $user = $this->getUserBySocketId($connection->resourceId);
 
     if (!$user) {
       if ($message->type !== "AUTHENTICATE") {
@@ -60,14 +69,17 @@ class SyncServer implements MessageComponentInterface
     }
 
     switch ($message->type) {
-      case "PAUSE":
-        $this->handlePause($user);
-        break;
       case MessageType::$CREATE_ROOM:
         $this->roomService->createRoom($user, $message->data);
         break;
       case MessageType::$JOIN_ROOM:
         $this->roomService->joinRoom($user, $message->data);
+        break;
+      case MessageType::$PAUSE_ROOM:
+        $this->roomService->pauseRoom($user);
+        break;
+      case MessageType::$PLAY_ROOM:
+        $this->roomService->playRoom($user);
         break;
     }
   }
@@ -79,7 +91,7 @@ class SyncServer implements MessageComponentInterface
     }
 
     $userId = $this->authService->getUserId($data->accessToken);
-    if ($userId === null) {
+    if (!isset($userId)) {
       return;
     }
 
@@ -98,11 +110,6 @@ class SyncServer implements MessageComponentInterface
     $this->userRepository->setOnline($wsUser->user->id, true);
     $this->sendMessage($wsUser, "AUTHENTICATED", null);
     $this->roomService->syncRooms($wsUser);
-  }
-
-  public function handlePause(WsUser $user)
-  {
-    $this->spotifyPlayerService->pause($user->user);
   }
 
   public function onOpen(ConnectionInterface $connection)
@@ -144,6 +151,15 @@ class SyncServer implements MessageComponentInterface
   {
     foreach ($this->users as $user) {
       $this->sendMessage($user, $type, $data);
+    }
+  }
+
+  public function sendMessageToRoom(int $roomId, string $type, $data)
+  {
+    foreach ($this->users as $user) {
+      if ($user->roomId === $roomId) {
+        $this->sendMessage($user, $type, $data);
+      }
     }
   }
 

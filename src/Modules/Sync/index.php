@@ -27,12 +27,12 @@ $spotifyAuthService = new SpotifyAuthService($userRepository);
 $spotifyPlayerService = new SpotifyPlayerService($spotifyAuthService);
 $spotifyService = new SpotifyService($spotifyAuthService);
 $authService = new AuthService($userRepository, $spotifyAuthService, $spotifyService);
-$roomService = new RoomService();
+$roomService = new RoomService($spotifyPlayerService);
 
 $server = IoServer::factory(
   new HttpServer(
     new WsServer(
-      new SyncServer($spotifyPlayerService, $authService, $userRepository, $roomService),
+      new SyncServer($authService, $userRepository, $roomService),
     )
   ),
   3000

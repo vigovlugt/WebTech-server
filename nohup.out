@@ -1,0 +1,117 @@
+server running on 3000
+CONNECT: 10
+CREATING NEW ROOM: Epic gamer room
+LEAVE: 10
+PHP Fatal error:  Uncaught TypeError: SpotiSync\Modules\Sync\Models\WsUser::__construct(): Argument #1 ($user) must be of type SpotiSync\Models\User, null given, called in /var/www/webtech-server/src/Modules/Sync/SyncServer.php on line 88 and defined in /var/www/webtech-server/src/Modules/Sync/Models/WsUser.php:16
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(88): SpotiSync\Modules\Sync\Models\WsUser->__construct()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(58): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(41): Ratchet\Server\IoServer->run()
+#18 {main}
+  thrown in /var/www/webtech-server/src/Modules/Sync/Models/WsUser.php on line 16
+
+Fatal error: Uncaught TypeError: SpotiSync\Modules\Sync\Models\WsUser::__construct(): Argument #1 ($user) must be of type SpotiSync\Models\User, null given, called in /var/www/webtech-server/src/Modules/Sync/SyncServer.php on line 88 and defined in /var/www/webtech-server/src/Modules/Sync/Models/WsUser.php:16
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(88): SpotiSync\Modules\Sync\Models\WsUser->__construct()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(58): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(41): Ratchet\Server\IoServer->run()
+#18 {main}
+  thrown in /var/www/webtech-server/src/Modules/Sync/Models/WsUser.php on line 16
+server running on 3000
+server running on 3000
+PHP Fatal error:  Uncaught RuntimeException: Failed to listen on "tcp://0.0.0.0:3000": Address already in use in /var/www/webtech-server/vendor/react/socket/src/TcpServer.php:165
+Stack trace:
+#0 /var/www/webtech-server/vendor/react/socket/src/Server.php(36): React\Socket\TcpServer->__construct()
+#1 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(59): React\Socket\Server->__construct()
+#2 /var/www/webtech-server/src/Modules/Sync/index.php(38): Ratchet\Server\IoServer::factory()
+#3 {main}
+  thrown in /var/www/webtech-server/vendor/react/socket/src/TcpServer.php on line 165
+
+Fatal error: Uncaught RuntimeException: Failed to listen on "tcp://0.0.0.0:3000": Address already in use in /var/www/webtech-server/vendor/react/socket/src/TcpServer.php:165
+Stack trace:
+#0 /var/www/webtech-server/vendor/react/socket/src/Server.php(36): React\Socket\TcpServer->__construct()
+#1 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(59): React\Socket\Server->__construct()
+#2 /var/www/webtech-server/src/Modules/Sync/index.php(38): Ratchet\Server\IoServer::factory()
+#3 {main}
+  thrown in /var/www/webtech-server/vendor/react/socket/src/TcpServer.php on line 165
+CONNECT: 22
+LEAVE: 22
+CONNECT: 22
+LEAVE: 22
+CONNECT: 22
+LEAVE: 22
+PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(86): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(58): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(41): Ratchet\Server\IoServer->run()
+#18 {main}
+  thrown in /var/www/webtech-server/src/Repositories/UserRepository.php on line 20
+
+Fatal error: Uncaught Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(86): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(58): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(41): Ratchet\Server\IoServer->run()
+#18 {main}
+  thrown in /var/www/webtech-server/src/Repositories/UserRepository.php on line 20

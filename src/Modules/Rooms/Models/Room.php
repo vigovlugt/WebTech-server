@@ -10,11 +10,14 @@ class Room
 
   public array $users = [];
 
+  public PlayerState $playerState;
+
   function __construct(int $id, string $name, int $ownerId)
   {
     $this->id = $id;
     $this->name = $name;
     $this->ownerId = $ownerId;
+    $this->playerState = new PlayerState();
   }
 
   public function hasUser(int $id)
