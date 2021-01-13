@@ -29,6 +29,7 @@ class SpotifyPlayerService
   {
     $content = Requests::put("https://api.spotify.com/v1/me/player/play", null, $user->spotifyAccessToken);
     $result = json_decode($content);
+    echo $content;
 
     if ($this->spotifyAuthService->isAccessTokenExpired($result)) {
       $user = $this->spotifyAuthService->refreshUserAccessToken($user);

@@ -6,7 +6,6 @@ use SpotiSync\Modules\Rooms\Models\Room;
 use SpotiSync\Modules\Sync\Constants\MessageType;
 use SpotiSync\Modules\Sync\Models\WsUser;
 use SpotiSync\Modules\Sync\SyncServer;
-use SpotiSync\Services\SpotifyPlayerService;
 
 class RoomService
 {
@@ -14,12 +13,17 @@ class RoomService
 
   private int $nextRoomId = 0;
 
-  private SyncServer $syncServer;
-  private SpotifyPlayerService $spotifyPlayerService;
+  public SyncServer $syncServer;
 
-  public function __construct(SpotifyPlayerService $spotifyPlayerService)
+  public RoomPlayerService $playerService;
+  public RoomQueueService $queueService;
+
+  public function __construct(RoomPlayerService $playerService, RoomQueueService $queueService)
   {
-    $this->spotifyPlayerService = $spotifyPlayerService;
+    $this->playerService = $playerService;
+    $this->playerService->setRoomService($this);
+    $this->queueService = $queueService;
+    $this->queueService->setRoomService($this);
   }
 
   public function setSyncServer(SyncServer $syncServer)
@@ -44,24 +48,17 @@ class RoomService
     $this->syncServer->sendMessageToAll(MessageType::$ROOM_LIST_SYNC, $this->rooms);
   }
 
-
   public function joinRoom(WsUser $user, object $data)
   {
-    $userId = $user->user->id;
     $roomId = $data->id;
     $room = $this->getRoom($roomId);
 
     $this->leaveRoom($user);
 
-    if (isset($user->roomId)) {
-      $userRoom = $this->getRoom($user->roomId);
-      $userRoom->removeUser($userId);
-    }
-
-    array_push($room->users, $userId);
+    array_push($room->users, $user->user);
     $user->roomId = $roomId;
 
-    $this->syncUserPlayerState($user, $room);
+    $this->playerService->syncUserPlayerState($user, $room);
     $this->syncRoom($room, $user);
     $this->syncRooms();
   }
@@ -71,51 +68,6 @@ class RoomService
     if (isset($user->roomId)) {
       $userRoom = $this->getRoom($user->roomId);
       $userRoom->removeUser($user->user->id);
-    }
-  }
-
-  public function pauseRoom(WsUser $user)
-  {
-    if (!isset($user->roomId)) {
-      return;
-    }
-
-    $room = $this->getRoom($user->roomId);
-    $room->playerState->isPlaying = false;
-
-    foreach ($room->users as $userId) {
-      $user = $this->syncServer->getUser($userId);
-      $this->spotifyPlayerService->pause($user->user);
-    }
-
-    $this->syncRoom($room);
-  }
-
-  public function playRoom(WsUser $user)
-  {
-    if (!isset($user->roomId)) {
-      return;
-    }
-
-    $room = $this->getRoom($user->roomId);
-    $room->playerState->isPlaying = true;
-
-    foreach ($room->users as $userId) {
-      $user = $this->syncServer->getUser($userId);
-      $this->spotifyPlayerService->play($user->user);
-    }
-
-    $this->syncRoom($room);
-  }
-
-  public function syncUserPlayerState(WsUser $user, Room $room)
-  {
-    $isPlaying = $room->playerState->isPlaying;
-
-    if ($isPlaying) {
-      $this->spotifyPlayerService->play($user->user);
-    } else {
-      $this->spotifyPlayerService->pause($user->user);
     }
   }
 

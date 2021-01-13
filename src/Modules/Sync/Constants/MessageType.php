@@ -10,4 +10,5 @@ final class MessageType
   public static $SYNC_ROOM = "SYNC_ROOM";
   public static $PLAY_ROOM = "PLAY_ROOM";
   public static $PAUSE_ROOM = "PAUSE_ROOM";
+  public static $ROOM_ADD_QUEUE = "ROOM_ADD_QUEUE";
 }

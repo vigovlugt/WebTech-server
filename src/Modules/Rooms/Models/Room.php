@@ -20,21 +20,18 @@ class Room
     $this->playerState = new PlayerState();
   }
 
-  public function hasUser(int $id)
+  public function removeUser(int $id)
   {
-    foreach ($this->users as $user) {
-      if ($user->id == $id) {
-        return true;
+    $key = null;
+    for ($i = 0; $i < count($this->users); $i++) {
+      if ($this->users[$i]->id === $id) {
+        $key = $i;
       }
     }
 
-    return false;
-  }
-
-  public function removeUser(int $id)
-  {
-    $this->users = array_filter($this->users, function (int $userId) use ($id) {
-      return $userId !== $id;
-    });
+    if (isset($key)) {
+      unset($this->users[$key]);
+      $this->users = array_values($this->users);
+    }
   }
 }

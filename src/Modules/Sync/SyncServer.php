@@ -3,7 +3,6 @@
 namespace SpotiSync\Modules\Sync;
 
 use Exception;
-use GuzzleHttp\Psr7\Message;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 use SpotiSync\Modules\Rooms\Services\RoomService;
@@ -76,10 +75,13 @@ class SyncServer implements MessageComponentInterface
         $this->roomService->joinRoom($user, $message->data);
         break;
       case MessageType::$PAUSE_ROOM:
-        $this->roomService->pauseRoom($user);
+        $this->roomService->playerService->pauseRoom($user);
         break;
       case MessageType::$PLAY_ROOM:
-        $this->roomService->playRoom($user);
+        $this->roomService->playerService->playRoom($user);
+        break;
+      case MessageType::$ROOM_ADD_QUEUE:
+        $this->roomService->queueService->addToQueue($user, $message->data);
         break;
     }
   }
@@ -122,7 +124,7 @@ class SyncServer implements MessageComponentInterface
 
   public function onClose(ConnectionInterface $connection)
   {
-    $user = $this->getUser($connection->resourceId);
+    $user = $this->getUserBySocketId($connection->resourceId);
 
     $index = array_search($user, $this->users);
 
@@ -157,7 +159,7 @@ class SyncServer implements MessageComponentInterface
   public function sendMessageToRoom(int $roomId, string $type, $data)
   {
     foreach ($this->users as $user) {
-      if ($user->roomId === $roomId) {
+      if (isset($user->roomId) && $user->roomId === $roomId) {
         $this->sendMessage($user, $type, $data);
       }
     }
