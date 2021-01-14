@@ -5,6 +5,7 @@ namespace SpotiSync\Modules\Sync;
 use Exception;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
+use React\EventLoop\LoopInterface;
 use SpotiSync\Modules\Rooms\Services\RoomService;
 use SpotiSync\Modules\Sync\Constants\MessageType;
 use SpotiSync\Modules\Sync\Models\WsMessage;
@@ -14,11 +15,13 @@ use SpotiSync\Services\AuthService;
 
 class SyncServer implements MessageComponentInterface
 {
-  private array $users = [];
+  public LoopInterface $loop;
 
   private AuthService $authService;
   private UserRepository $userRepository;
   private RoomService $roomService;
+
+  private array $users = [];
 
   public function __construct(AuthService $authService, UserRepository $userRepository, RoomService $roomService)
   {
@@ -28,6 +31,11 @@ class SyncServer implements MessageComponentInterface
     $this->roomService->setSyncServer($this);
 
     echo "server running on 3000\n";
+  }
+
+  public function setLoop(LoopInterface $loop)
+  {
+    $this->loop = $loop;
   }
 
   public function getUser(int $id)
@@ -68,20 +76,23 @@ class SyncServer implements MessageComponentInterface
     }
 
     switch ($message->type) {
-      case MessageType::$CREATE_ROOM:
+      case MessageType::$ROOM_CREATE:
         $this->roomService->createRoom($user, $message->data);
         break;
-      case MessageType::$JOIN_ROOM:
+      case MessageType::$ROOM_JOIN:
         $this->roomService->joinRoom($user, $message->data);
         break;
-      case MessageType::$PAUSE_ROOM:
+      case MessageType::$ROOM_PAUSE:
         $this->roomService->playerService->pauseRoom($user);
         break;
-      case MessageType::$PLAY_ROOM:
+      case MessageType::$ROOM_PLAY:
         $this->roomService->playerService->playRoom($user);
         break;
       case MessageType::$ROOM_ADD_QUEUE:
         $this->roomService->queueService->addToQueue($user, $message->data);
+        break;
+      case MessageType::$ROOM_PLAY_NEXT:
+        $this->roomService->playerService->playNextUser($user);
         break;
     }
   }

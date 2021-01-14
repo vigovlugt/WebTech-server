@@ -2,14 +2,16 @@
 
 namespace SpotiSync\Modules\Rooms\Models;
 
+use React\EventLoop\TimerInterface;
+
 class PlayerState
 {
   public bool $isPlaying = false;
-  public ?string $currentTrack = null;
+  public ?Track $currentTrack = null;
 
   public array $queue = [];
 
-  function __construct()
-  {
-  }
+  public ?TimerInterface $trackEndTimer = null;
+  public int $timeToSongEnd = 0;
+  public int $timerStarted = 0;
 }

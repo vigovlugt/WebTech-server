@@ -5,10 +5,11 @@ namespace SpotiSync\Modules\Sync\Constants;
 final class MessageType
 {
   public static $ROOM_LIST_SYNC = "ROOM_LIST_SYNC";
-  public static $CREATE_ROOM = "CREATE_ROOM";
-  public static $JOIN_ROOM = "JOIN_ROOM";
-  public static $SYNC_ROOM = "SYNC_ROOM";
-  public static $PLAY_ROOM = "PLAY_ROOM";
-  public static $PAUSE_ROOM = "PAUSE_ROOM";
+  public static $ROOM_CREATE = "ROOM_CREATE";
+  public static $ROOM_JOIN = "ROOM_JOIN";
+  public static $ROOM_SYNC = "ROOM_SYNC";
+  public static $ROOM_PLAY = "ROOM_PLAY";
+  public static $ROOM_PAUSE = "ROOM_PAUSE";
   public static $ROOM_ADD_QUEUE = "ROOM_ADD_QUEUE";
+  public static $ROOM_PLAY_NEXT = "ROOM_PLAY_NEXT";
 }

@@ -36,13 +36,16 @@ $roomQueueService = new RoomQueueService($spotifyTrackService);
 $roomPlayerService = new RoomPlayerService($spotifyPlayerService);
 $roomService = new RoomService($roomPlayerService, $roomQueueService);
 
+$syncServer = new SyncServer($authService, $userRepository, $roomService);
+
 $server = IoServer::factory(
   new HttpServer(
     new WsServer(
-      new SyncServer($authService, $userRepository, $roomService),
+      $syncServer
     )
   ),
   3000
 );
+$syncServer->setLoop($server->loop);
 
 $server->run();

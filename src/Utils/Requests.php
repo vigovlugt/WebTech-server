@@ -38,20 +38,20 @@ class Requests
 
 
 
-  public static function put($url, $data, $token = null)
+  public static function put($url, $data = null, $token = null)
   {
     $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_PUT, true);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-    if ($token !== null) {
+    if (isset($token)) {
       curl_setopt($curl, CURLOPT_HTTPHEADER, array(
         "Authorization: Bearer {$token}"
       ));
     }
 
-    if ($data !== null) {
-      curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+    if (isset($data)) {
+      curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
     }
 
     $response = curl_exec($curl);

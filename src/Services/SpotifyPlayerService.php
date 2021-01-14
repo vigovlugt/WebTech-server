@@ -25,15 +25,23 @@ class SpotifyPlayerService
     return true;
   }
 
-  public function play(User $user)
+  public function play(User $user, string $trackId = null)
   {
-    $content = Requests::put("https://api.spotify.com/v1/me/player/play", null, $user->spotifyAccessToken);
+    $body = null;
+
+    if (isset($trackId)) {
+      $body = array(
+        "uris" => array("spotify:track:$trackId")
+      );
+    }
+
+    $content = Requests::put("https://api.spotify.com/v1/me/player/play", $body, $user->spotifyAccessToken);
     $result = json_decode($content);
     echo $content;
 
     if ($this->spotifyAuthService->isAccessTokenExpired($result)) {
       $user = $this->spotifyAuthService->refreshUserAccessToken($user);
-      return $this->play($user);
+      return $this->play($user, $trackId);
     }
 
     return true;

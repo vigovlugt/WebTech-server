@@ -8,6 +8,7 @@ class Track
   public string $name;
   public Artist $artist;
   public Album $album;
+  public int $duration;
 
   public function __construct(object $data)
   {
@@ -15,5 +16,6 @@ class Track
     $this->name = $data->name;
     $this->artist = new Artist($data->artists[0]);
     $this->album = new Album($data->album);
+    $this->duration = $data->duration_ms;
   }
 }

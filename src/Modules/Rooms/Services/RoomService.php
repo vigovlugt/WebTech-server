@@ -74,11 +74,11 @@ class RoomService
   public function syncRoom(Room $room, WsUser $user = null)
   {
     if (isset($user)) {
-      $this->syncServer->sendMessage($user, MessageType::$SYNC_ROOM, $room);
+      $this->syncServer->sendMessage($user, MessageType::$ROOM_SYNC, $room);
       return;
     }
 
-    $this->syncServer->sendMessageToRoom($room->id, MessageType::$SYNC_ROOM, $room);
+    $this->syncServer->sendMessageToRoom($room->id, MessageType::$ROOM_SYNC, $room);
   }
 
   public function syncRooms(WsUser $user = null)
