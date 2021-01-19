@@ -63,7 +63,7 @@ class RoomQueueService
     }
 
     array_push($track->upvotes, $user->user->id);
-    $track->downvotes = array_diff($track->downvotes, array($user->user->id));
+    $track->downvotes = array_values(array_diff($track->downvotes, array($user->user->id)));
 
     $this->sortQueue($room);
 
@@ -88,7 +88,7 @@ class RoomQueueService
     }
 
     array_push($track->downvotes, $user->user->id);
-    $track->upvotes = array_diff($track->upvotes, array($user->user->id));
+    $track->upvotes = array_values(array_diff($track->upvotes, array($user->user->id)));
 
     $this->sortQueue($room);
 
@@ -104,6 +104,8 @@ class RoomQueueService
 
       return $b->getVotes() <=> $a->getVotes();
     });
+
+    $room->playerState->queue = array_values($room->playerState->queue);
   }
 
   private function getQueueTrack(Room $room, int $id)
