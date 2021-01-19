@@ -94,6 +94,12 @@ class SyncServer implements MessageComponentInterface
       case MessageType::$ROOM_PLAY_NEXT:
         $this->roomService->playerService->playNextUser($user);
         break;
+      case MessageType::$ROOM_TRACK_UPVOTE:
+        $this->roomService->queueService->upvoteTrack($user, $message->data);
+        break;
+      case MessageType::$ROOM_TRACK_DOWNVOTE:
+        $this->roomService->queueService->downvoteTrack($user, $message->data);
+        break;
     }
   }
 

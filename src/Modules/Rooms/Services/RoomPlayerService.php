@@ -65,7 +65,7 @@ class RoomPlayerService
 
       $this->setTimer($room);
       foreach ($room->users as $user) {
-        $this->spotifyPlayerService->play($user, $currentTrack->id, $room->playerState->getTrackTime());
+        $this->spotifyPlayerService->play($user, $currentTrack->track->id, $room->playerState->getTrackTime());
       }
     }
 
@@ -104,7 +104,7 @@ class RoomPlayerService
     $this->setTimer($room);
 
     foreach ($room->users as $user) {
-      $this->spotifyPlayerService->play($user, $room->playerState->currentTrack->id, $room->playerState->getTrackTime());
+      $this->spotifyPlayerService->play($user, $room->playerState->currentTrack->track->id, $room->playerState->getTrackTime());
     }
 
     $room->playerState->isPlaying = true;
@@ -136,7 +136,7 @@ class RoomPlayerService
     $isPlaying = $room->playerState->isPlaying;
     $trackId = null;
     if (isset($room->playerState->currentTrack)) {
-      $trackId = $room->playerState->currentTrack->id;
+      $trackId = $room->playerState->currentTrack->track->id;
     }
 
     if ($isPlaying) {

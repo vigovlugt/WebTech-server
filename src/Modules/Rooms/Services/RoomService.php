@@ -68,6 +68,9 @@ class RoomService
     if (isset($user->roomId)) {
       $userRoom = $this->getRoom($user->roomId);
       $userRoom->removeUser($user->user->id);
+
+      $this->syncRoom($userRoom);
+      $this->syncRooms();
     }
   }
 

@@ -12,4 +12,6 @@ final class MessageType
   public static $ROOM_PAUSE = "ROOM_PAUSE";
   public static $ROOM_ADD_QUEUE = "ROOM_ADD_QUEUE";
   public static $ROOM_PLAY_NEXT = "ROOM_PLAY_NEXT";
+  public static $ROOM_TRACK_DOWNVOTE = "ROOM_TRACK_DOWNVOTE";
+  public static $ROOM_TRACK_UPVOTE = "ROOM_TRACK_UPVOTE";
 }

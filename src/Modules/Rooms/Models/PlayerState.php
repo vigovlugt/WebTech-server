@@ -8,7 +8,7 @@ use SpotiSync\Utils\Time;
 class PlayerState
 {
   public bool $isPlaying = false;
-  public ?Track $currentTrack = null;
+  public ?QueueTrack $currentTrack = null;
 
   public array $queue = [];
 
@@ -23,6 +23,6 @@ class PlayerState
 
   public function getTimeToTrackEnd()
   {
-    return $this->currentTrack->duration - $this->getTrackTime();
+    return $this->currentTrack->track->duration - $this->getTrackTime();
   }
 }
