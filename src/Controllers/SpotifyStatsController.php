@@ -5,6 +5,7 @@ namespace SpotiSync\Controllers;
 use SpotiSync\Repositories\UserRepository;
 use SpotiSync\Services\AuthService;
 use SpotiSync\Services\SpotifyService;
+use SpotiSync\Models\SpotifyUserStats;
 
 class SpotifyStatsController
 {
@@ -39,10 +40,16 @@ class SpotifyStatsController
   public function get($userId)
   {
     $user = $this->repository->get($userId);
+    $stats = new SpotifyUserStats();
+    $stats->medium_tracks = $this->service->getTopByTypeForPeriod($user, "tracks", "medium_term");
+    $stats->long_tracks = $this->service->getTopByTypeForPeriod($user, "tracks", "long_term");
+    $stats->short_tracks = $this->service->getTopByTypeForPeriod($user, "tracks", "short_term");
+    $stats->medium_artists = $this->service->getTopByTypeForPeriod($user, "artists", "medium_term");
+    $stats->long_artists = $this->service->getTopByTypeForPeriod($user, "artists", "long_term");
+    $stats->short_artists = $this->service->getTopByTypeForPeriod($user, "artists", "short_term");
+    $stats->history = $this->service->getHistory($user, "artists", "short_term");
 
-    $topData = $this->service->getTopByTypeForPeriod($user, "tracks", "medium_term");
-
-    return $this->return_json($topData);
+    return $this->return_json($stats);
   }
 
   public function return_json($data)

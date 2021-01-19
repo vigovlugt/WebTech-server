@@ -59,7 +59,7 @@ class RoomService
     $user->roomId = $roomId;
 
     $this->playerService->syncUserPlayerState($user, $room);
-    $this->syncRoom($room, $user);
+    $this->syncRoom($room);
     $this->syncRooms();
   }
 

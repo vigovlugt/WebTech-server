@@ -41,8 +41,6 @@ class SpotifyProfileController
     $user = $this->repository->get($userId);
 
     $spotifyProfile = $this->service->getUserInformation($user);
-    $topData = $this->service->getTopByTypeForPeriod($user, "tracks", "medium_term");
-    $spotifyProfile->data = $topData;
     return $this->return_json($spotifyProfile);
   }
 

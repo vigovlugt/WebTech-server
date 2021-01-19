@@ -49,8 +49,20 @@ class SpotifyService
       return $this->getTopByTypeForPeriod($user, $type, $period);
     }
 
-    $topData = new SpotifyUserTopData($type, $period, $result);
+    return $result;
+  }
 
-    return $topData;
+  public function getHistory(User $user)
+  {
+    $content = Requests::get("https://api.spotify.com/v1/me/player/recently-played", $user->spotifyAccessToken);
+    $result = json_decode($content);
+
+    if ($this->spotifyAuthService->isAccessTokenExpired($result)) {
+      $user = $this->spotifyAuthService->refreshUserAccessToken($user);
+      return $this->getHistory($user);
+    }
+  
+
+    return $result;
   }
 }

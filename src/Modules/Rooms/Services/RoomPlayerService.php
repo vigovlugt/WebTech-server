@@ -5,6 +5,7 @@ namespace SpotiSync\Modules\Rooms\Services;
 use SpotiSync\Modules\Rooms\Models\Room;
 use SpotiSync\Modules\Sync\Models\WsUser;
 use SpotiSync\Services\SpotifyPlayerService;
+use SpotiSync\Utils\Time;
 
 class RoomPlayerService
 {
@@ -33,11 +34,9 @@ class RoomPlayerService
       return;
     }
 
+    $room->playerState->trackTimeBeforeTimer = $room->playerState->getTrackTime();
+
     $room->playerState->isPlaying = false;
-
-    $timerDuration = round(microtime(true) * 1000) - $room->playerState->timerStarted;
-
-    $room->playerState->timeToSongEnd -= $timerDuration;
 
     $this->roomService->syncServer->loop->cancelTimer($room->playerState->trackEndTimer);
 
@@ -56,7 +55,9 @@ class RoomPlayerService
 
     $room = $this->roomService->getRoom($user->roomId);
 
-    if (!isset($room->playerState->currentTrack)) {
+    $currentTrack = $room->playerState->currentTrack;
+
+    if (!isset($currentTrack)) {
       $this->playNext($room);
       return;
     } else {
@@ -64,7 +65,7 @@ class RoomPlayerService
 
       $this->setTimer($room);
       foreach ($room->users as $user) {
-        $this->spotifyPlayerService->play($user);
+        $this->spotifyPlayerService->play($user, $currentTrack->id, $room->playerState->getTrackTime());
       }
     }
 
@@ -86,6 +87,8 @@ class RoomPlayerService
 
   public function playNext(Room $room)
   {
+    $room->playerState->trackTimeBeforeTimer = 0;
+
     if (count($room->playerState->queue) === 0) {
       $room->playerState->currentTrack = null;
 
@@ -98,24 +101,27 @@ class RoomPlayerService
 
     // New track
     $room->playerState->currentTrack = array_shift($room->playerState->queue);
-
-    $room->playerState->timeToSongEnd = $room->playerState->currentTrack->duration;
     $this->setTimer($room);
 
     foreach ($room->users as $user) {
-      $this->spotifyPlayerService->play($user, $room->playerState->currentTrack->id);
+      $this->spotifyPlayerService->play($user, $room->playerState->currentTrack->id, $room->playerState->getTrackTime());
     }
 
     $room->playerState->isPlaying = true;
 
     $this->roomService->syncRoom($room);
+    $this->roomService->syncRooms();
   }
 
   public function setTimer(Room $room)
   {
-    $room->playerState->timerStarted = round(microtime(true) * 1000);
+    if (isset($room->playerState->trackEndTimer)) {
+      $this->roomService->syncServer->loop->cancelTimer($room->playerState->trackEndTimer);
+    }
 
-    $room->playerState->trackEndTimer = $this->roomService->syncServer->loop->addTimer($room->playerState->timeToSongEnd / 1000, function () use ($room) {
+    $room->playerState->timerStarted = Time::getMs();
+
+    $room->playerState->trackEndTimer = $this->roomService->syncServer->loop->addTimer($room->playerState->getTimeToTrackEnd() / 1000, function () use ($room) {
       $this->onSongEnd($room);
     });
   }
@@ -128,9 +134,13 @@ class RoomPlayerService
   public function syncUserPlayerState(WsUser $user, Room $room)
   {
     $isPlaying = $room->playerState->isPlaying;
+    $trackId = null;
+    if (isset($room->playerState->currentTrack)) {
+      $trackId = $room->playerState->currentTrack->id;
+    }
 
     if ($isPlaying) {
-      $this->spotifyPlayerService->play($user->user);
+      $this->spotifyPlayerService->play($user->user, $trackId, $room->playerState->getTrackTime());
     } else {
       $this->spotifyPlayerService->pause($user->user);
     }

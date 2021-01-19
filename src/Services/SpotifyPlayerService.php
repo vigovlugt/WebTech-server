@@ -25,13 +25,14 @@ class SpotifyPlayerService
     return true;
   }
 
-  public function play(User $user, string $trackId = null)
+  public function play(User $user, string $trackId = null, int $position = null)
   {
     $body = null;
 
     if (isset($trackId)) {
       $body = array(
-        "uris" => array("spotify:track:$trackId")
+        "uris" => array("spotify:track:$trackId"),
+        "position_ms" => $position
       );
     }
 
@@ -41,7 +42,7 @@ class SpotifyPlayerService
 
     if ($this->spotifyAuthService->isAccessTokenExpired($result)) {
       $user = $this->spotifyAuthService->refreshUserAccessToken($user);
-      return $this->play($user, $trackId);
+      return $this->play($user, $trackId, $position);
     }
 
     return true;
