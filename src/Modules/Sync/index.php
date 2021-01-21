@@ -4,6 +4,8 @@ use Ratchet\Http\HttpServer;
 use Ratchet\Server\IoServer;
 use Ratchet\WebSocket\WsServer;
 use SpotiSync\Constants\Connection;
+use SpotiSync\Modules\Rooms\Repositories\RoomRepository;
+use SpotiSync\Modules\Rooms\Services\RoomContinuousService;
 use SpotiSync\Modules\Rooms\Services\RoomPlayerService;
 use SpotiSync\Modules\Rooms\Services\RoomQueueService;
 use SpotiSync\Modules\Rooms\Services\RoomService;
@@ -26,7 +28,10 @@ header("Access-Control-Allow-Headers: *");
 
 $connection = Connection::getConnection();
 $userRepository = new UserRepository($connection);
+$roomRepository = new RoomRepository($connection);
+
 $spotifyAuthService = new SpotifyAuthService($userRepository);
+
 $spotifyPlayerService = new SpotifyPlayerService($spotifyAuthService);
 $spotifyService = new SpotifyService($spotifyAuthService);
 $spotifyTrackService = new SpotifyTrackService($spotifyAuthService);
@@ -34,7 +39,8 @@ $authService = new AuthService($userRepository, $spotifyAuthService, $spotifySer
 
 $roomQueueService = new RoomQueueService($spotifyTrackService);
 $roomPlayerService = new RoomPlayerService($spotifyPlayerService);
-$roomService = new RoomService($roomPlayerService, $roomQueueService);
+$roomContinuousService = new RoomContinuousService($roomRepository, $spotifyTrackService);
+$roomService = new RoomService($roomPlayerService, $roomQueueService, $roomContinuousService);
 
 $syncServer = new SyncServer($authService, $userRepository, $roomService);
 
@@ -47,5 +53,24 @@ $server = IoServer::factory(
   3000
 );
 $syncServer->setLoop($server->loop);
+
+function shutdown()
+{
+  echo PHP_EOL;
+
+  global $roomService;
+  $roomService->onClose();
+}
+
+$server->loop->addSignal(SIGINT, function () {
+  exit();
+});
+
+$server->loop->addSignal(SIGTERM, function () {
+  exit();
+});
+
+
+register_shutdown_function("shutdown");
 
 $server->run();

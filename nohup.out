@@ -1,0 +1,23 @@
+server running on 3000
+server running on 3000
+CONNECT: 25
+server running on 3000
+Script executed with success
+server running on 3000
+PHP Fatal error:  Uncaught Error: Call to a member function execute() on bool in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php:77
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Rooms/Services/RoomContinuousService.php(18): SpotiSync\Modules\Rooms\Repositories\RoomRepository->deleteAll()
+#1 /var/www/webtech-server/src/Modules/Rooms/Services/RoomService.php(101): SpotiSync\Modules\Rooms\Services\RoomContinuousService->saveAll()
+#2 /var/www/webtech-server/src/Modules/Sync/index.php(60): SpotiSync\Modules\Rooms\Services\RoomService->onClose()
+#3 [internal function]: shutdown()
+#4 {main}
+  thrown in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php on line 77
+
+Fatal error: Uncaught Error: Call to a member function execute() on bool in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php:77
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Rooms/Services/RoomContinuousService.php(18): SpotiSync\Modules\Rooms\Repositories\RoomRepository->deleteAll()
+#1 /var/www/webtech-server/src/Modules/Rooms/Services/RoomService.php(101): SpotiSync\Modules\Rooms\Services\RoomContinuousService->saveAll()
+#2 /var/www/webtech-server/src/Modules/Sync/index.php(60): SpotiSync\Modules\Rooms\Services\RoomService->onClose()
+#3 [internal function]: shutdown()
+#4 {main}
+  thrown in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php on line 77

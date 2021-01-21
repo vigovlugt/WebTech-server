@@ -16,8 +16,6 @@ class QueueTrack
     $this->id = $id;
     $this->userId = $userId;
     $this->track = $track;
-
-    array_push($this->upvotes, $userId);
   }
 
   public function getVotes()

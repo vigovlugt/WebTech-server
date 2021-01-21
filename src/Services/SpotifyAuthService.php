@@ -75,6 +75,20 @@ class SpotifyAuthService
     return $user;
   }
 
+  public function getAppAccessToken()
+  {
+    $data = array(
+      "grant_type" => "client_credentials"
+    );
+
+    $token = base64_encode(SpotifyAuthService::$clientId . ":" . SpotifyAuthService::$clientSecret);
+
+    $result = Requests::post("https://accounts.spotify.com/api/token", $data, $token, "Basic");
+    $result = json_decode($result);
+
+    return $result->access_token;
+  }
+
   public function isAccessTokenExpired($result)
   {
     return isset($result->error) && $result->error->status === 401 && $result->error->message === "The access token expired";

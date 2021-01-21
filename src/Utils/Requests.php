@@ -17,13 +17,13 @@ class Requests
     return $response;
   }
 
-  public static function post($url, $data, $token = null)
+  public static function post($url, $data, $token = null, $authType = "Bearer")
   {
     $curl = curl_init($url);
 
     if ($token !== null) {
       curl_setopt($curl, CURLOPT_HTTPHEADER, array(
-        "Authorization: Bearer {$token}"
+        "Authorization: $authType {$token}"
       ));
     }
 

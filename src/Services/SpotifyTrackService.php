@@ -24,4 +24,22 @@ class SpotifyTrackService
 
     return $result;
   }
+
+  public function getTracks(array $ids)
+  {
+    $accessToken = $this->spotifyAuthService->getAppAccessToken();
+
+    $tracks = [];
+
+    $chunks = array_chunk($ids, 50);
+
+    foreach ($chunks as $chunk) {
+      $param = implode(",", $chunk);
+      $content = Requests::get("https://api.spotify.com/v1/tracks?ids=$param", $accessToken);
+      $result = json_decode($content);
+      $tracks = array_merge($tracks, $result->tracks);
+    }
+
+    return $tracks;
+  }
 }

@@ -9,21 +9,26 @@ use SpotiSync\Modules\Sync\SyncServer;
 
 class RoomService
 {
-  private array $rooms = [];
-
-  private int $nextRoomId = 0;
+  private array $rooms;
 
   public SyncServer $syncServer;
 
   public RoomPlayerService $playerService;
   public RoomQueueService $queueService;
+  public RoomContinuousService $roomContinuousService;
 
-  public function __construct(RoomPlayerService $playerService, RoomQueueService $queueService)
+  public function __construct(RoomPlayerService $playerService, RoomQueueService $queueService, RoomContinuousService $roomContinuousService)
   {
     $this->playerService = $playerService;
     $this->playerService->setRoomService($this);
     $this->queueService = $queueService;
     $this->queueService->setRoomService($this);
+    $this->roomContinuousService = $roomContinuousService;
+
+    $this->rooms = $this->roomContinuousService->getAll();
+    foreach ($this->rooms as $room) {
+      $this->queueService->sortQueue($room);
+    }
   }
 
   public function setSyncServer(SyncServer $syncServer)
@@ -39,9 +44,7 @@ class RoomService
 
     echo "CREATING NEW ROOM: $data->name\n";
 
-    $room = new Room($this->nextRoomId, $data->name, $user->user->id);
-
-    $this->nextRoomId++;
+    $room = new Room($this->getMaxRoomId() + 1, $data->name, $user->user->id);
 
     array_push($this->rooms, $room);
 
@@ -92,6 +95,24 @@ class RoomService
     }
 
     $this->syncServer->sendMessageToAll(MessageType::$ROOM_LIST_SYNC, $this->rooms);
+  }
+
+  public function onClose()
+  {
+    $this->roomContinuousService->saveAll($this->rooms);
+  }
+
+  public function getMaxRoomId()
+  {
+    $max = 0;
+
+    foreach ($this->rooms as $room) {
+      if ($room->id > $max) {
+        $max = $room->id;
+      }
+    }
+
+    return $max;
   }
 
   public function getRoom(int $id)

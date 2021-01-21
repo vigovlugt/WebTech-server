@@ -62,44 +62,48 @@ class SyncServer implements MessageComponentInterface
 
   public function onMessage(ConnectionInterface $connection, $msg)
   {
-    $message = SyncServer::parseMessage($msg);
+    try {
+      $message = SyncServer::parseMessage($msg);
 
-    $user = $this->getUserBySocketId($connection->resourceId);
+      $user = $this->getUserBySocketId($connection->resourceId);
 
-    if (!$user) {
-      if ($message->type !== "AUTHENTICATE") {
+      if (!$user) {
+        if ($message->type !== "AUTHENTICATE") {
+          return;
+        }
+
+        $this->handleAuthenticate($connection, $message->data);
         return;
       }
 
-      $this->handleAuthenticate($connection, $message->data);
-      return;
-    }
-
-    switch ($message->type) {
-      case MessageType::$ROOM_CREATE:
-        $this->roomService->createRoom($user, $message->data);
-        break;
-      case MessageType::$ROOM_JOIN:
-        $this->roomService->joinRoom($user, $message->data);
-        break;
-      case MessageType::$ROOM_PAUSE:
-        $this->roomService->playerService->pauseRoom($user);
-        break;
-      case MessageType::$ROOM_PLAY:
-        $this->roomService->playerService->playRoom($user);
-        break;
-      case MessageType::$ROOM_ADD_QUEUE:
-        $this->roomService->queueService->addToQueue($user, $message->data);
-        break;
-      case MessageType::$ROOM_PLAY_NEXT:
-        $this->roomService->playerService->playNextUser($user);
-        break;
-      case MessageType::$ROOM_TRACK_UPVOTE:
-        $this->roomService->queueService->upvoteTrack($user, $message->data);
-        break;
-      case MessageType::$ROOM_TRACK_DOWNVOTE:
-        $this->roomService->queueService->downvoteTrack($user, $message->data);
-        break;
+      switch ($message->type) {
+        case MessageType::$ROOM_CREATE:
+          $this->roomService->createRoom($user, $message->data);
+          break;
+        case MessageType::$ROOM_JOIN:
+          $this->roomService->joinRoom($user, $message->data);
+          break;
+        case MessageType::$ROOM_PAUSE:
+          $this->roomService->playerService->pauseRoom($user);
+          break;
+        case MessageType::$ROOM_PLAY:
+          $this->roomService->playerService->playRoom($user);
+          break;
+        case MessageType::$ROOM_ADD_QUEUE:
+          $this->roomService->queueService->addToQueue($user, $message->data);
+          break;
+        case MessageType::$ROOM_PLAY_NEXT:
+          $this->roomService->playerService->playNextUser($user);
+          break;
+        case MessageType::$ROOM_TRACK_UPVOTE:
+          $this->roomService->queueService->upvoteTrack($user, $message->data);
+          break;
+        case MessageType::$ROOM_TRACK_DOWNVOTE:
+          $this->roomService->queueService->downvoteTrack($user, $message->data);
+          break;
+      }
+    } catch (\Throwable $th) {
+      echo "ERROR ON MESSAGE:\n" . $th . PHP_EOL;
     }
   }
 
@@ -141,16 +145,20 @@ class SyncServer implements MessageComponentInterface
 
   public function onClose(ConnectionInterface $connection)
   {
-    $user = $this->getUserBySocketId($connection->resourceId);
+    try {
+      $user = $this->getUserBySocketId($connection->resourceId);
 
-    $index = array_search($user, $this->users);
+      $index = array_search($user, $this->users);
 
-    if ($index !== false) {
+      if ($index !== false) {
 
-      echo "LEAVE: {$user->user->id}\n";
+        echo "LEAVE: {$user->user->id}\n";
 
-      $this->userRepository->setOnline($user->user->id, false);
-      $this->roomService->leaveRoom($user);
+        $this->userRepository->setOnline($user->user->id, false);
+        $this->roomService->leaveRoom($user);
+      }
+    } catch (\Throwable $th) {
+      echo "ERROR ON CLOSE:\n" . $th . PHP_EOL;
     }
   }
 
