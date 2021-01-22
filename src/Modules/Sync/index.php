@@ -4,6 +4,7 @@ use Ratchet\Http\HttpServer;
 use Ratchet\Server\IoServer;
 use Ratchet\WebSocket\WsServer;
 use SpotiSync\Constants\Connection;
+use SpotiSync\Modules\Chat\Services\RoomChatService;
 use SpotiSync\Modules\Rooms\Repositories\RoomRepository;
 use SpotiSync\Modules\Rooms\Services\RoomContinuousService;
 use SpotiSync\Modules\Rooms\Services\RoomPlayerService;
@@ -40,7 +41,8 @@ $authService = new AuthService($userRepository, $spotifyAuthService, $spotifySer
 $roomQueueService = new RoomQueueService($spotifyTrackService);
 $roomPlayerService = new RoomPlayerService($spotifyPlayerService);
 $roomContinuousService = new RoomContinuousService($roomRepository, $spotifyTrackService);
-$roomService = new RoomService($roomPlayerService, $roomQueueService, $roomContinuousService);
+$roomChatService = new RoomChatService();
+$roomService = new RoomService($roomPlayerService, $roomQueueService, $roomContinuousService, $roomChatService);
 
 $syncServer = new SyncServer($authService, $userRepository, $roomService);
 

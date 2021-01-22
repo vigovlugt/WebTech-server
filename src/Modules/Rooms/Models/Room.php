@@ -13,6 +13,8 @@ class Room
 
   public PlayerState $playerState;
 
+  public array $chat = [];
+
   function __construct(int $id, string $name, int $ownerId)
   {
     $this->id = $id;

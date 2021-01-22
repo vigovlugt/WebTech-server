@@ -107,6 +107,9 @@ class SyncServer implements MessageComponentInterface
         case MessageType::$ROOM_SET_COLOR:
           $this->roomService->setColor($user, $message->data);
           break;
+        case MessageType::$ROOM_CHAT_MESSAGE:
+          $this->roomService->roomChatService->sendChatMessage($user, $message->data);
+          break;
       }
     } catch (\Throwable $th) {
       echo "ERROR ON MESSAGE:\n" . $th . PHP_EOL;

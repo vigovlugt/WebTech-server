@@ -16,4 +16,5 @@ final class MessageType
   public static $ROOM_TRACK_UPVOTE = "ROOM_TRACK_UPVOTE";
   public static $ROOM_DELETE = "ROOM_DELETE";
   public static $ROOM_SET_COLOR = "ROOM_SET_COLOR";
+  public static $ROOM_CHAT_MESSAGE = "ROOM_CHAT_MESSAGE";
 }

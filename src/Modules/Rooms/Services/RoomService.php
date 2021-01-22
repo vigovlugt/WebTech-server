@@ -2,6 +2,7 @@
 
 namespace SpotiSync\Modules\Rooms\Services;
 
+use SpotiSync\Modules\Chat\Services\RoomChatService;
 use SpotiSync\Modules\Rooms\Models\Room;
 use SpotiSync\Modules\Sync\Constants\MessageType;
 use SpotiSync\Modules\Sync\Models\WsUser;
@@ -16,14 +17,17 @@ class RoomService
   public RoomPlayerService $playerService;
   public RoomQueueService $queueService;
   public RoomContinuousService $roomContinuousService;
+  public RoomChatService $roomChatService;
 
-  public function __construct(RoomPlayerService $playerService, RoomQueueService $queueService, RoomContinuousService $roomContinuousService)
+  public function __construct(RoomPlayerService $playerService, RoomQueueService $queueService, RoomContinuousService $roomContinuousService, RoomChatService $roomChatService)
   {
     $this->playerService = $playerService;
     $this->playerService->setRoomService($this);
     $this->queueService = $queueService;
     $this->queueService->setRoomService($this);
     $this->roomContinuousService = $roomContinuousService;
+    $this->roomChatService = $roomChatService;
+    $this->roomChatService->setRoomService($this);
 
     $this->rooms = $this->roomContinuousService->getAll();
     foreach ($this->rooms as $room) {
