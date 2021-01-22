@@ -90,6 +90,10 @@ class RoomService
     }
 
     $room = $this->getRoom($user->roomId);
+    if ($room->ownerId !== $user->user->id) {
+      return;
+    }
+
     $users = $room->users;
 
     for ($i = 0; $i < count($this->rooms); $i++) {
@@ -106,6 +110,23 @@ class RoomService
     }
 
     $this->syncRooms();
+  }
+
+  public function setColor(WsUser $user, object $data)
+  {
+    if (!isset($user->roomId)) {
+      return;
+    }
+
+    $room = $this->getRoom($user->roomId);
+    if ($room->ownerId !== $user->user->id) {
+      return;
+    }
+
+    $room->color = htmlspecialchars($data->color);
+
+    $this->syncRooms();
+    $this->syncRoom($room);
   }
 
   public function syncRoom(Room $room, WsUser $user = null)

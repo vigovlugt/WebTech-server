@@ -64,8 +64,8 @@ class RoomRepository
     $currentTrackId = isset($room->playerState->currentTrack) ? $room->playerState->currentTrack->track->id : null;
     $currentTrackUserId = isset($room->playerState->currentTrack) ? $room->playerState->currentTrack->userId : null;
 
-    $query = $this->connection->prepare("INSERT INTO rooms (id, name, ownerId, currentTrackId, currentTrackUserId) VALUES (?,?,?,?,?)");
-    $query->bind_param("isisi", $room->id, $room->name, $room->ownerId, $currentTrackId, $currentTrackUserId);
+    $query = $this->connection->prepare("INSERT INTO rooms (id, name, ownerId, currentTrackId, currentTrackUserId, color) VALUES (?,?,?,?,?,?)");
+    $query->bind_param("isisis", $room->id, $room->name, $room->ownerId, $currentTrackId, $currentTrackUserId, $room->color);
     $query->execute();
 
     $this->insertQueueTracks($room);

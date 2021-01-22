@@ -6,6 +6,7 @@ class Room
 {
   public int $id;
   public string $name;
+  public string $color = "#1DB954";
   public int $ownerId;
 
   public array $users = [];

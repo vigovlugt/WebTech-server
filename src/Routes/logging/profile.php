@@ -7,18 +7,14 @@ error_reporting(E_ALL);
 require_once __DIR__ . "/../../../vendor/autoload.php";
 
 use SpotiSync\Constants\Connection;
-use SpotiSync\Repositories\UserRepository;
-use SpotiSync\Services\SpotifyService;
-use SpotiSync\Controllers\SpotifyProfileController;
-use SpotiSync\Services\SpotifyAuthService;
+use SpotiSync\Controllers\LoggingController;
+use SpotiSync\Services\LoggingService;
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 $connection = Connection::getConnection();
-$userRepository = new UserRepository($connection);
-$spotifyAuthService = new SpotifyAuthService($userRepository);
-$service = new SpotifyService($spotifyAuthService);
-$controller = new SpotifyProfileController($service, $userRepository);
+$service = new LoggingService();
+$controller = new LoggingController($connection, $service);
 
 $controller->handleRequest();

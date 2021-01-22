@@ -29,6 +29,7 @@ class RoomContinuousService
 
     foreach ($roomObjs as $roomObj) {
       $room = new Room($roomObj["id"], $roomObj["name"], $roomObj["ownerId"]);
+      $room->color = $roomObj["color"];
 
       if (isset($roomObj["currentTrackId"]) && !empty($roomObj["currentTrackId"])) {
         $room->playerState->currentTrack = new QueueTrack(-1, $roomObj["currentTrackUserId"], $trackDict[$roomObj["currentTrackId"]]);
