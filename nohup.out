@@ -21,3 +21,1221 @@ Stack trace:
 #3 [internal function]: shutdown()
 #4 {main}
   thrown in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php on line 77
+server running on 3000
+CONNECT: 25
+LEAVE: 25
+CONNECT: 25
+LEAVE: 25
+CONNECT: 25
+CONNECT: 23
+CREATING NEW ROOM: test
+CONNECT: 23
+LEAVE: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+CONNECT: 23
+LEAVE: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+CONNECT: 23
+LEAVE: 23
+LEAVE: 25
+CONNECT: 25
+LEAVE: 25
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+ERROR ON MESSAGE:
+Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Repositories/UserRepository.php:20
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(121): SpotiSync\Repositories\UserRepository->get()
+#1 /var/www/webtech-server/src/Modules/Sync/SyncServer.php(75): SpotiSync\Modules\Sync\SyncServer->handleAuthenticate()
+#2 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(75): SpotiSync\Modules\Sync\SyncServer->onMessage()
+#3 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(131): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#4 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(248): Ratchet\WebSocket\WsServer->Ratchet\WebSocket\{closure}()
+#5 /var/www/webtech-server/vendor/ratchet/rfc6455/src/Messaging/MessageBuffer.php(194): Ratchet\RFC6455\Messaging\MessageBuffer->processData()
+#6 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/WebSocket/WsServer.php(153): Ratchet\RFC6455\Messaging\MessageBuffer->onData()
+#7 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Http/HttpServer.php(54): Ratchet\WebSocket\WsServer->onMessage()
+#8 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(112): Ratchet\Http\HttpServer->onMessage()
+#9 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(95): Ratchet\Server\IoServer->handleData()
+#10 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): Ratchet\Server\IoServer->Ratchet\Server\{closure}()
+#11 /var/www/webtech-server/vendor/react/stream/src/Util.php(71): Evenement\EventEmitter->emit()
+#12 /var/www/webtech-server/vendor/evenement/evenement/src/Evenement/EventEmitterTrait.php(123): React\Stream\Util::React\Stream\{closure}()
+#13 /var/www/webtech-server/vendor/react/stream/src/DuplexResourceStream.php(193): Evenement\EventEmitter->emit()
+#14 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(245): React\Stream\DuplexResourceStream->handleData()
+#15 /var/www/webtech-server/vendor/react/event-loop/src/StreamSelectLoop.php(212): React\EventLoop\StreamSelectLoop->waitForStreamActivity()
+#16 /var/www/webtech-server/vendor/cboden/ratchet/src/Ratchet/Server/IoServer.php(74): React\EventLoop\StreamSelectLoop->run()
+#17 /var/www/webtech-server/src/Modules/Sync/index.php(76): Ratchet\Server\IoServer->run()
+#18 {main}
+
+PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php:68
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Rooms/Services/RoomContinuousService.php(102): SpotiSync\Modules\Rooms\Repositories\RoomRepository->create()
+#1 /var/www/webtech-server/src/Modules/Rooms/Services/RoomService.php(102): SpotiSync\Modules\Rooms\Services\RoomContinuousService->saveAll()
+#2 /var/www/webtech-server/src/Modules/Sync/index.php(62): SpotiSync\Modules\Rooms\Services\RoomService->onClose()
+#3 [internal function]: shutdown()
+#4 {main}
+  thrown in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php on line 68
+
+Fatal error: Uncaught Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php:68
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Rooms/Services/RoomContinuousService.php(102): SpotiSync\Modules\Rooms\Repositories\RoomRepository->create()
+#1 /var/www/webtech-server/src/Modules/Rooms/Services/RoomService.php(102): SpotiSync\Modules\Rooms\Services\RoomContinuousService->saveAll()
+#2 /var/www/webtech-server/src/Modules/Sync/index.php(62): SpotiSync\Modules\Rooms\Services\RoomService->onClose()
+#3 [internal function]: shutdown()
+#4 {main}
+  thrown in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php on line 68

@@ -38,9 +38,11 @@ class RoomService
 
   public function createRoom(WsUser $user, object $data)
   {
-    if (!isset($data->name)) {
+    if (!isset($data->name) || trim($data->name) == "") {
       $data->name = "New room";
     }
+
+    $data->name = htmlspecialchars($data->name);
 
     echo "CREATING NEW ROOM: $data->name\n";
 
@@ -70,11 +72,40 @@ class RoomService
   {
     if (isset($user->roomId)) {
       $userRoom = $this->getRoom($user->roomId);
+      if ($userRoom === null) {
+        return;
+      }
+
       $userRoom->removeUser($user->user->id);
 
       $this->syncRoom($userRoom);
       $this->syncRooms();
     }
+  }
+
+  public function deleteRoom(WsUser $user)
+  {
+    if (!isset($user->roomId)) {
+      return;
+    }
+
+    $room = $this->getRoom($user->roomId);
+    $users = $room->users;
+
+    for ($i = 0; $i < count($this->rooms); $i++) {
+      if ($this->rooms[$i]->id === $room->id) {
+        unset($this->rooms[$i]);
+        break;
+      }
+    }
+    $this->rooms = array_values($this->rooms);
+
+    foreach ($users as $user) {
+      $this->syncServer->getUser($user->id)->roomId = null;
+      $this->syncServer->sendMessageToRoom($room->id, MessageType::$ROOM_SYNC, null);
+    }
+
+    $this->syncRooms();
   }
 
   public function syncRoom(Room $room, WsUser $user = null)

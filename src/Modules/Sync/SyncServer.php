@@ -101,6 +101,9 @@ class SyncServer implements MessageComponentInterface
         case MessageType::$ROOM_TRACK_DOWNVOTE:
           $this->roomService->queueService->downvoteTrack($user, $message->data);
           break;
+        case MessageType::$ROOM_DELETE:
+          $this->roomService->deleteRoom($user);
+          break;
       }
     } catch (\Throwable $th) {
       echo "ERROR ON MESSAGE:\n" . $th . PHP_EOL;
