@@ -17,6 +17,10 @@ class UserRepository
   public function get(int $userId)
   {
     $query = $this->connection->prepare("SELECT * FROM users WHERE id = ?");
+    if ($query->error) {
+      trigger_error($query->error);
+    }
+
     $query->bind_param("i", $userId);
 
     $query->execute();

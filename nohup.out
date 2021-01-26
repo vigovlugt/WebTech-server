@@ -1239,3 +1239,61 @@ Stack trace:
 #3 [internal function]: shutdown()
 #4 {main}
   thrown in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php on line 68
+server running on 3000
+CONNECT: 25
+LEAVE: 25
+CONNECT: 25
+CONNECT: 23
+CREATING NEW ROOM: 1
+LEAVE: 25
+CONNECT: 25
+LEAVE: 25
+LEAVE: 23
+CONNECT: 25
+CONNECT: 28
+LEAVE: 25
+CONNECT: 25
+CREATING NEW ROOM: e̵̹͔͎̪̊̈́̕p̴̨͍͈̘̯̻͈̺̰̐͂͋̇͒̀̍̇͝w̸̟̔̓͆ȏ̸̥̹̠̭̥̝̽́̇ͅt̸͙̼̘̦̥̻̃͗̓͊̆̌͜j̵̞̳̣̖̳̓̊́̎̈̽͆l̴̞͚͈̠̠̼̏͗̇̑̚̕e̴̛̞̙͍͎͗̏̍̏̋̿̆q̷̰͍͔̺̣̜̼͐̉̈̓f̶̩̜̘̫͕̻̱͓̱̣̏̆̃̄̆̿͌̐j̷̨͍̋̈l̸̡̛̟̙͓̜̖;̵͖͍͂͗̀̓͐́̉͋̇͘͜d̴̨̐͜ṣ̷̡̧̛̠̻̺̣̟̜̗̄̍a̸̤̺͋̽̅̉́̇͆̌̈ķ̸͚̠̖̯̀͒͆͛͊͑̆̃̅͒͜j̵̩͉̯̱̋̅̀̕f̴̨̗͙͌͛̋l̶̨̫̯͔͚͔̤̳̜̞̋͝ą̸̣̞͎̳͂̂̈̀̍̆̄̒̋͝k̶̢̺̹͚͕̼̒́̌̔͊̓̚̚͘ȩ̶̭͈̤͖̟̩̠̘̾́̓̊̐͝͝͝ͅj̵̢̯͋s̷̢̬̔f̶̤̳̲͎̌̃͗ļ̵͔̩̗͈̭̫͙̓ą̴̗̣̥̝̩̝̣̳͇̋́̃͠͠d̴͈̟̯̻̺̑̂̌̐̅s̴̖͚̋́͑̽͂͛͊̉̚
+CREATING NEW ROOM: e̵̹͔͎̪̊̈́̕p̴̨͍͈̘̯̻͈̺̰̐͂͋̇͒̀̍̇͝w̸̟̔̓͆ȏ̸̥̹̠̭̥̝̽́̇ͅt̸͙̼̘̦̥̻̃͗̓͊̆̌͜j̵̞̳̣̖̳̓̊́̎̈̽͆l̴̞͚͈̠̠̼̏͗̇̑̚̕e̴̛̞̙͍͎͗̏̍̏̋̿̆q̷̰͍͔̺̣̜̼͐̉̈̓f̶̩̜̘̫͕̻̱͓̱̣̏̆̃̄̆̿͌̐j̷̨͍̋̈l̸̡̛̟̙͓̜̖;̵͖͍͂͗̀̓͐́̉͋̇͘͜d̴̨̐͜ṣ̷̡̧̛̠̻̺̣̟̜̗̄̍a̸̤̺͋̽̅̉́̇͆̌̈ķ̸͚̠̖̯̀͒͆͛͊͑̆̃̅͒͜j̵̩͉̯̱̋̅̀̕f̴̨̗͙͌͛̋l̶̨̫̯͔͚͔̤̳̜̞̋͝ą̸̣̞͎̳͂̂̈̀̍̆̄̒̋͝k̶̢̺̹͚͕̼̒́̌̔͊̓̚̚͘ȩ̶̭͈̤͖̟̩̠̘̾́̓̊̐͝͝͝ͅj̵̢̯͋s̷̢̬̔f̶̤̳̲͎̌̃͗ļ̵͔̩̗͈̭̫͙̓ą̴̗̣̥̝̩̝̣̳͇̋́̃͠͠d̴͈̟̯̻̺̑̂̌̐̅s̴̖͚̋́͑̽͂͛͊̉̚e̵̹͔͎̪̊̈́̕p̴̨͍͈̘̯̻͈̺̰̐͂͋̇͒̀̍̇͝w̸̟̔̓͆ȏ̸̥̹̠̭̥̝̽́̇ͅt̸͙̼̘̦̥̻̃͗̓͊̆̌͜j̵̞̳̣̖̳̓̊́̎̈̽͆l̴̞͚͈̠̠̼̏͗̇̑̚̕e̴̛̞̙͍͎͗̏̍̏̋̿̆q̷̰͍͔̺̣̜̼͐̉̈̓f̶̩̜̘̫͕̻̱͓̱̣̏̆̃̄̆̿͌̐j̷̨͍̋̈l̸̡̛̟̙͓̜̖;̵͖͍͂͗̀̓͐́̉͋̇͘͜d̴̨̐͜ṣ̷̡̧̛̠̻̺̣̟̜̗̄̍a̸̤̺͋̽̅̉́̇͆̌̈ķ̸͚̠̖̯̀͒͆͛͊͑̆̃̅͒͜j̵̩͉̯̱̋̅̀̕f̴̨̗͙͌͛̋l̶̨̫̯͔͚͔̤̳̜̞̋͝ą̸̣̞͎̳͂̂̈̀̍̆̄̒̋͝k̶̢̺̹͚͕̼̒́̌̔͊̓̚̚͘ȩ̶̭͈̤͖̟̩̠̘̾́̓̊̐͝͝͝ͅj̵̢̯͋s̷̢̬̔f̶̤̳̲͎̌̃͗ļ̵͔̩̗͈̭̫͙̓ą̴̗̣̥̝̩̝̣̳͇̋́̃͠͠d̴͈̟̯̻̺̑̂̌̐̅s̴̖͚̋́͑̽͂͛͊̉̚e̵̹͔͎̪̊̈́̕p̴̨͍͈̘̯̻͈̺̰̐͂͋̇͒̀̍̇͝w̸̟̔̓͆ȏ̸̥̹̠̭̥̝̽́̇ͅt̸͙̼̘̦̥̻̃͗̓͊̆̌͜j̵̞̳̣̖̳̓̊́̎̈̽͆l̴̞͚͈̠̠̼̏͗̇̑̚̕e̴̛̞̙͍͎͗̏̍̏̋̿̆q̷̰͍͔̺̣̜̼͐̉̈̓f̶̩̜̘̫͕̻̱͓̱̣̏̆̃̄̆̿͌̐j̷̨͍̋̈l̸̡̛̟̙͓̜̖;̵͖͍͂͗̀̓͐́̉͋̇͘͜d̴̨̐͜ṣ̷̡̧̛̠̻̺̣̟̜̗̄̍a̸̤̺͋̽̅̉́̇͆̌̈ķ̸͚̠̖̯̀͒͆͛͊͑̆̃̅͒͜j̵̩͉̯̱̋̅̀̕f̴̨̗͙͌͛̋l̶̨̫̯͔͚͔̤̳̜̞̋͝ą̸̣̞͎̳͂̂̈̀̍̆̄̒̋͝k̶̢̺̹͚͕̼̒́̌̔͊̓̚̚͘ȩ̶̭͈̤͖̟̩̠̘̾́̓̊̐͝͝͝ͅj̵̢̯͋s̷̢̬̔f̶̤̳̲͎̌̃͗ļ̵͔̩̗͈̭̫͙̓ą̴̗̣̥̝̩̝̣̳͇̋́̃͠͠d̴͈̟̯̻̺̑̂̌̐̅s̴̖͚̋́͑̽͂͛͊̉̚
+CREATING NEW ROOM: wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+{
+  "error" : {
+    "status" : 404,
+    "message" : "Player command failed: No active device found",
+    "reason" : "NO_ACTIVE_DEVICE"
+  }
+}LEAVE: 25
+CONNECT: 25
+LEAVE: 28
+CONNECT: 28
+LEAVE: 25
+CONNECT: 25
+LEAVE: 28
+CONNECT: 28
+{
+  "error" : {
+    "status" : 404,
+    "message" : "Player command failed: No active device found",
+    "reason" : "NO_ACTIVE_DEVICE"
+  }
+}CREATING NEW ROOM: 𒐫𒐫𒐫𒐫𒐫𒐫
+LEAVE: 25
+LEAVE: 28
+
+PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php:68
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Rooms/Services/RoomContinuousService.php(103): SpotiSync\Modules\Rooms\Repositories\RoomRepository->create()
+#1 /var/www/webtech-server/src/Modules/Rooms/Services/RoomService.php(158): SpotiSync\Modules\Rooms\Services\RoomContinuousService->saveAll()
+#2 /var/www/webtech-server/src/Modules/Sync/index.php(64): SpotiSync\Modules\Rooms\Services\RoomService->onClose()
+#3 [internal function]: shutdown()
+#4 {main}
+  thrown in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php on line 68
+
+Fatal error: Uncaught Error: Call to a member function bind_param() on bool in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php:68
+Stack trace:
+#0 /var/www/webtech-server/src/Modules/Rooms/Services/RoomContinuousService.php(103): SpotiSync\Modules\Rooms\Repositories\RoomRepository->create()
+#1 /var/www/webtech-server/src/Modules/Rooms/Services/RoomService.php(158): SpotiSync\Modules\Rooms\Services\RoomContinuousService->saveAll()
+#2 /var/www/webtech-server/src/Modules/Sync/index.php(64): SpotiSync\Modules\Rooms\Services\RoomService->onClose()
+#3 [internal function]: shutdown()
+#4 {main}
+  thrown in /var/www/webtech-server/src/Modules/Rooms/Repositories/RoomRepository.php on line 68

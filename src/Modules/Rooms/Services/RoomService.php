@@ -4,6 +4,7 @@ namespace SpotiSync\Modules\Rooms\Services;
 
 use SpotiSync\Modules\Chat\Services\RoomChatService;
 use SpotiSync\Modules\Rooms\Models\Room;
+use SpotiSync\Modules\Rooms\ViewModels\RoomViewModel;
 use SpotiSync\Modules\Sync\Constants\MessageType;
 use SpotiSync\Modules\Sync\Models\WsUser;
 use SpotiSync\Modules\Sync\SyncServer;
@@ -136,21 +137,26 @@ class RoomService
   public function syncRoom(Room $room, WsUser $user = null)
   {
     if (isset($user)) {
-      $this->syncServer->sendMessage($user, MessageType::$ROOM_SYNC, $room);
+      $this->syncServer->sendMessage($user, MessageType::$ROOM_SYNC, new RoomViewModel($room));
       return;
     }
 
-    $this->syncServer->sendMessageToRoom($room->id, MessageType::$ROOM_SYNC, $room);
+    $this->syncServer->sendMessageToRoom($room->id, MessageType::$ROOM_SYNC, new RoomViewModel($room));
   }
 
   public function syncRooms(WsUser $user = null)
   {
+    $roomVms = [];
+    foreach ($this->rooms as $room) {
+      array_push($roomVms, new RoomViewModel($room));
+    }
+
     if (isset($user)) {
-      $this->syncServer->sendMessage($user, MessageType::$ROOM_LIST_SYNC, $this->rooms);
+      $this->syncServer->sendMessage($user, MessageType::$ROOM_LIST_SYNC, $roomVms);
       return;
     }
 
-    $this->syncServer->sendMessageToAll(MessageType::$ROOM_LIST_SYNC, $this->rooms);
+    $this->syncServer->sendMessageToAll(MessageType::$ROOM_LIST_SYNC, $roomVms);
   }
 
   public function onClose()

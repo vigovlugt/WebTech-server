@@ -17,4 +17,7 @@ final class MessageType
   public static $ROOM_DELETE = "ROOM_DELETE";
   public static $ROOM_SET_COLOR = "ROOM_SET_COLOR";
   public static $ROOM_CHAT_MESSAGE = "ROOM_CHAT_MESSAGE";
+
+  public static $AVAILABLE_DEVICES = "AVAILABLE_DEVICES";
+  public static $SET_ACTIVE_DEVICE = "SET_ACTIVE_DEVICE";
 }

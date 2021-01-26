@@ -11,7 +11,7 @@ class SpotifyAuthService
   private static $redirectUri = "https://agile114.science.uva.nl/api/authentication/callback.php";
   private static $clientId = "a396669e85dc48f78c0bd375588ffbde";
   private static $clientSecret = "f4b61155d8964c9781f1968e33500929";
-  private static $scopes = "user-top-read user-modify-playback-state user-read-private user-read-email user-read-recently-played user-read-playback-position";
+  private static $scopes = "user-top-read user-modify-playback-state user-read-private user-read-email user-read-recently-played user-read-playback-position user-read-playback-state";
 
   private UserRepository $userRepository;
 

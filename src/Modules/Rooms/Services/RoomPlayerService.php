@@ -3,7 +3,9 @@
 namespace SpotiSync\Modules\Rooms\Services;
 
 use SpotiSync\Modules\Rooms\Models\Room;
+use SpotiSync\Modules\Sync\Constants\MessageType;
 use SpotiSync\Modules\Sync\Models\WsUser;
+use SpotiSync\Services\SpotifyActiveDeviceService;
 use SpotiSync\Services\SpotifyPlayerService;
 use SpotiSync\Utils\Time;
 
@@ -12,10 +14,12 @@ class RoomPlayerService
   private RoomService $roomService;
 
   private SpotifyPlayerService $spotifyPlayerService;
+  private SpotifyActiveDeviceService $spotifyActiveDeviceService;
 
-  public function __construct(SpotifyPlayerService $spotifyPlayerService)
+  public function __construct(SpotifyPlayerService $spotifyPlayerService, SpotifyActiveDeviceService $spotifyActiveDeviceService)
   {
     $this->spotifyPlayerService = $spotifyPlayerService;
+    $this->spotifyActiveDeviceService = $spotifyActiveDeviceService;
   }
 
   public function setRoomService(RoomService $roomService)
@@ -65,7 +69,15 @@ class RoomPlayerService
 
       $this->setTimer($room);
       foreach ($room->users as $user) {
-        $this->spotifyPlayerService->play($user, $currentTrack->track->id, $room->playerState->getTrackTime());
+        $response = $this->spotifyPlayerService->play($user, $currentTrack->track->id, $room->playerState->getTrackTime());
+
+        if ($this->spotifyPlayerService->hasNoActiveDevice($response)) {
+          $availableDevices = $this->spotifyActiveDeviceService->getAvailableDevices($user);
+
+          $wsUser = $this->roomService->syncServer->getUser($user->id);
+
+          $this->roomService->syncServer->sendMessage($wsUser, MessageType::$AVAILABLE_DEVICES, $availableDevices);
+        }
       }
     }
 
@@ -104,7 +116,15 @@ class RoomPlayerService
     $this->setTimer($room);
 
     foreach ($room->users as $user) {
-      $this->spotifyPlayerService->play($user, $room->playerState->currentTrack->track->id, $room->playerState->getTrackTime());
+      $response = $this->spotifyPlayerService->play($user, $room->playerState->currentTrack->track->id, $room->playerState->getTrackTime());
+
+      if ($this->spotifyPlayerService->hasNoActiveDevice($response)) {
+        $availableDevices = $this->spotifyActiveDeviceService->getAvailableDevices($user);
+
+        $wsUser = $this->roomService->syncServer->getUser($user->id);
+
+        $this->roomService->syncServer->sendMessage($wsUser, MessageType::$AVAILABLE_DEVICES, $availableDevices);
+      }
     }
 
     $room->playerState->isPlaying = true;
@@ -131,7 +151,7 @@ class RoomPlayerService
     $this->playNext($room);
   }
 
-  public function syncUserPlayerState(WsUser $user, Room $room)
+  public function syncUserPlayerState(WsUser $user, Room $room, string $deviceId = null)
   {
     $isPlaying = $room->playerState->isPlaying;
     $trackId = null;
@@ -140,9 +160,26 @@ class RoomPlayerService
     }
 
     if ($isPlaying) {
-      $this->spotifyPlayerService->play($user->user, $trackId, $room->playerState->getTrackTime());
+      $response = $this->spotifyPlayerService->play($user->user, $trackId, $room->playerState->getTrackTime(), $deviceId);
+
+      if ($this->spotifyPlayerService->hasNoActiveDevice($response)) {
+        $availableDevices = $this->spotifyActiveDeviceService->getAvailableDevices($user->user);
+
+        $this->roomService->syncServer->sendMessage($user, MessageType::$AVAILABLE_DEVICES, $availableDevices);
+      }
     } else {
       $this->spotifyPlayerService->pause($user->user);
     }
+  }
+
+  public function setActiveDevice(WsUser $user, object $data)
+  {
+    if (!isset($user->roomId)) {
+      return;
+    }
+
+    $room = $this->roomService->getRoom($user->roomId);
+
+    $this->syncUserPlayerState($user, $room, $data->id);
   }
 }

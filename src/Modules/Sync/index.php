@@ -13,6 +13,7 @@ use SpotiSync\Modules\Rooms\Services\RoomService;
 use SpotiSync\Modules\Sync\SyncServer;
 use SpotiSync\Repositories\UserRepository;
 use SpotiSync\Services\AuthService;
+use SpotiSync\Services\SpotifyActiveDeviceService;
 use SpotiSync\Services\SpotifyAuthService;
 use SpotiSync\Services\SpotifyPlayerService;
 use SpotiSync\Services\SpotifyService;
@@ -36,10 +37,11 @@ $spotifyAuthService = new SpotifyAuthService($userRepository);
 $spotifyPlayerService = new SpotifyPlayerService($spotifyAuthService);
 $spotifyService = new SpotifyService($spotifyAuthService);
 $spotifyTrackService = new SpotifyTrackService($spotifyAuthService);
+$spotifyActiveDeviceService = new SpotifyActiveDeviceService($spotifyAuthService);
 $authService = new AuthService($userRepository, $spotifyAuthService, $spotifyService);
 
 $roomQueueService = new RoomQueueService($spotifyTrackService);
-$roomPlayerService = new RoomPlayerService($spotifyPlayerService);
+$roomPlayerService = new RoomPlayerService($spotifyPlayerService, $spotifyActiveDeviceService);
 $roomContinuousService = new RoomContinuousService($roomRepository, $spotifyTrackService);
 $roomChatService = new RoomChatService();
 $roomService = new RoomService($roomPlayerService, $roomQueueService, $roomContinuousService, $roomChatService);
@@ -56,6 +58,7 @@ $server = IoServer::factory(
 );
 $syncServer->setLoop($server->loop);
 
+// Save state on shutdown
 function shutdown()
 {
   echo PHP_EOL;
@@ -63,6 +66,7 @@ function shutdown()
   global $roomService;
   $roomService->onClose();
 }
+register_shutdown_function("shutdown");
 
 $server->loop->addSignal(SIGINT, function () {
   exit();
@@ -73,6 +77,5 @@ $server->loop->addSignal(SIGTERM, function () {
 });
 
 
-register_shutdown_function("shutdown");
 
 $server->run();
