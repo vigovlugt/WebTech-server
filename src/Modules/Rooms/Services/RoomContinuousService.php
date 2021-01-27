@@ -2,6 +2,7 @@
 
 namespace SpotiSync\Modules\Rooms\Services;
 
+use SpotiSync\Modules\Chat\Models\ChatMessage;
 use SpotiSync\Modules\Rooms\Models\QueueTrack;
 use SpotiSync\Modules\Rooms\Models\Room;
 use SpotiSync\Modules\Rooms\Models\Track;
@@ -35,31 +36,49 @@ class RoomContinuousService
         $room->playerState->currentTrack = new QueueTrack(-1, $roomObj["currentTrackUserId"], $trackDict[$roomObj["currentTrackId"]]);
       }
 
-      // Add queue tracks
-      foreach ($roomObj["queueTracks"] as $queueTrackObj) {
-        $track = $trackDict[$queueTrackObj["trackId"]];
-        $queueTrack = new QueueTrack($queueTrackObj["id"], $queueTrackObj["userId"], $track);
-        array_push($room->playerState->queue, $queueTrack);
-      }
+      $this->setRoomQueueTracks($room, $roomObj["queueTracks"], $trackDict);
 
-      // Add queue votes
-      foreach ($roomObj["queueVotes"] as $queueVoteObj) {
-        foreach ($room->playerState->queue as $queueTrack) {
-          if ($queueTrack->id == $queueVoteObj["queueTrackId"] && $roomObj["id"] == $queueVoteObj["roomId"]) {
-            if ($queueVoteObj["type"] == "UP") {
-              array_push($queueTrack->upvotes, intval($queueVoteObj["userId"]));
-            } else if ($queueVoteObj["type"] == "DOWN") {
-              array_push($queueTrack->downvotes, intval($queueVoteObj["userId"]));
-            }
-            break;
-          }
-        }
-      }
+      $this->setRoomQueueVotes($room, $roomObj["queueVotes"]);
+
+      $this->setRoomChatMessages($room, $roomObj["chatMessages"]);
 
       array_push($rooms, $room);
     }
 
     return $rooms;
+  }
+
+  private function setRoomQueueTracks(Room $room, array $queueTracks, array $trackDict)
+  {
+    foreach ($queueTracks as $queueTrackObj) {
+      $track = $trackDict[$queueTrackObj["trackId"]];
+      $queueTrack = new QueueTrack($queueTrackObj["id"], $queueTrackObj["userId"], $track);
+      array_push($room->playerState->queue, $queueTrack);
+    }
+  }
+
+  private function setRoomQueueVotes(Room $room, array $queueVotes)
+  {
+    foreach ($queueVotes as $queueVoteObj) {
+      foreach ($room->playerState->queue as $queueTrack) {
+        if ($queueTrack->id == $queueVoteObj["queueTrackId"] && $room->id == $queueVoteObj["roomId"]) {
+          if ($queueVoteObj["type"] == "UP") {
+            array_push($queueTrack->upvotes, intval($queueVoteObj["userId"]));
+          } else if ($queueVoteObj["type"] == "DOWN") {
+            array_push($queueTrack->downvotes, intval($queueVoteObj["userId"]));
+          }
+          break;
+        }
+      }
+    }
+  }
+
+  private function setRoomChatMessages(Room $room, array $chatMessages)
+  {
+    foreach ($chatMessages as $chatMessage) {
+      $chatMessage = new ChatMessage($chatMessage["id"], $chatMessage["userId"], $chatMessage["content"]);
+      array_push($room->chat, $chatMessage);
+    }
   }
 
   private function getAllTrackData(array $roomObjs)

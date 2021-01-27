@@ -16,7 +16,6 @@ class RoomRepository
 
   public function getAll()
   {
-
     $result = $this->connection->query("SELECT * FROM rooms");
 
     $roomsObjs = [];
@@ -28,6 +27,7 @@ class RoomRepository
     foreach ($roomsObjs as $roomObj) {
       $roomObj["queueTracks"] = $this->getQueueTracks($roomObj["id"]);
       $roomObj["queueVotes"] = $this->getQueueVotes($roomObj["id"]);
+      $roomObj["chatMessages"] = $this->getChatMessages($roomObj["id"]);
       array_push($rooms, $roomObj);
     }
 
@@ -58,6 +58,18 @@ class RoomRepository
     return $queueVotes;
   }
 
+  public function getChatMessages(int $roomId)
+  {
+    $result = $this->connection->query("SELECT * FROM roomChatMessages WHERE roomId = $roomId");
+
+    $chatMessages = [];
+    while ($row = $result->fetch_assoc()) {
+      array_push($chatMessages, $row);
+    }
+
+    return $chatMessages;
+  }
+
   public function create(Room $room)
   {
     // Insert room
@@ -71,6 +83,8 @@ class RoomRepository
     $this->insertQueueTracks($room);
 
     $this->insertQueueVotes($room);
+
+    $this->insertChatMessages($room);
   }
 
   private function insertQueueTracks(Room $room)
@@ -122,12 +136,32 @@ class RoomRepository
     }
   }
 
+  private function insertChatMessages(Room $room)
+  {
+    if (count($room->chat) === 0) {
+      return;
+    }
+
+    $queryStr = "INSERT INTO roomChatMessages (id, roomId, userId, content) VALUES ";
+
+    $values = [];
+    foreach ($room->chat as $chatMessage) {
+      $content = $this->connection->real_escape_string($chatMessage->content);
+      array_push($values, "($chatMessage->id, $room->id, $chatMessage->userId, '$content')");
+    }
+
+    $queryStr .= implode(",", $values);
+
+    $query = $this->connection->prepare($queryStr);
+    $query->execute();
+  }
 
   public function deleteAll()
   {
     $queryStr = "DELETE FROM rooms WHERE 1;\n" .
       "DELETE FROM roomQueueTracks WHERE 1;\n" .
-      "DELETE FROM roomQueueVotes WHERE 1;\n";
+      "DELETE FROM roomQueueVotes WHERE 1;\n" .
+      "DELETE FROM roomChatMessages WHERE 1;";
 
     $this->connection->multi_query($queryStr);
     while ($this->connection->next_result()) {

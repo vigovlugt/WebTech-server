@@ -22,10 +22,21 @@ class RoomChatService
       return;
     }
 
+    if (!isset($data->content)) {
+      return;
+    }
+
+    if (strlen($data->content) > 1000) {
+      $data->content = substr($data->content, 0, 997) . "...";
+    }
+
     $room = $this->roomService->getRoom($user->roomId);
     $message = new ChatMessage($this->getMaxChatMessageId($room) + 1, $user->user->id, htmlspecialchars($data->content));
 
     array_push($room->chat, $message);
+    if (count($room->chat) > 50) {
+      array_shift($room->chat);
+    }
 
     $this->roomService->syncRoom($room);
   }
