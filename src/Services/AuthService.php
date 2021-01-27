@@ -7,9 +7,9 @@ use SpotiSync\Repositories\UserRepository;
 
 class AuthService
 {
-  private static $jwtSecret = "FJKSDLFJDSKL:jkl";
+  public static $jwtSecret;
 
-  private static $jwtVersion = 1;
+  private static $jwtVersion = 2;
 
   private $userRepository;
   private $spotifyAuthService;
@@ -17,6 +17,8 @@ class AuthService
 
   public function __construct(UserRepository $userRepository, SpotifyAuthService $spotifyAuthService, SpotifyService $spotifyService)
   {
+    AuthService::$jwtSecret = $_ENV["JWT_SECRET"];
+
     $this->userRepository = $userRepository;
     $this->spotifyAuthService = $spotifyAuthService;
     $this->spotifyService = $spotifyService;
@@ -122,6 +124,7 @@ class AuthService
     if ($accessToken == null) {
       $headers = apache_request_headers();
       if (!isset($headers["Authorization"])) {
+        echo "Authorization header not set" . PHP_EOL;
         return null;
       }
 
@@ -130,6 +133,7 @@ class AuthService
     }
 
     if (!AuthService::verifyAccessToken($accessToken)) {
+      echo "Accesstoken not valid" . PHP_EOL;
       return null;
     }
 

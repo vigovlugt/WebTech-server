@@ -9,8 +9,8 @@ use SpotiSync\Utils\Requests;
 class SpotifyAuthService
 {
   private static $redirectUri = "https://agile114.science.uva.nl/api/authentication/callback.php";
-  private static $clientId = "a396669e85dc48f78c0bd375588ffbde";
-  private static $clientSecret = "f4b61155d8964c9781f1968e33500929";
+  private static $clientId = null;
+  private static $clientSecret = null;
   private static $scopes = "user-top-read user-modify-playback-state user-read-private user-read-email user-read-recently-played user-read-playback-position user-read-playback-state";
 
   private UserRepository $userRepository;
@@ -18,10 +18,13 @@ class SpotifyAuthService
   public function __construct(UserRepository $userRepository)
   {
     $this->userRepository = $userRepository;
+    SpotifyAuthService::$clientId = $_ENV["SPOTIFY_CLIENT_ID"];
+    SpotifyAuthService::$clientSecret = $_ENV["SPOTIFY_CLIENT_SECRET"];
   }
 
   public function redirectAuthorization()
   {
+    trigger_error(SpotifyAuthService::$clientId);
     $url = "https://accounts.spotify.com/authorize?"
       . "client_id=" . SpotifyAuthService::$clientId
       . "&response_type=code"

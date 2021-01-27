@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '8b2546a5debd2e2f3ca7bad214fcbefea1a27316',
+    'reference' => 'c1a51aaa5cb1028d81409582ff0c40c6a9313d2b',
     'name' => 'spotisync/server',
   ),
   'versions' => 
@@ -29,6 +29,15 @@
       ),
       'reference' => '531bfb9d15f8aa57454f5f0285b18bec903b8fb7',
     ),
+    'graham-campbell/result-type' => 
+    array (
+      'pretty_version' => 'v1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7e279d2cd5d7fbb156ce46daada972355cea27bb',
+    ),
     'guzzlehttp/psr7' => 
     array (
       'pretty_version' => '1.7.0',
@@ -37,6 +46,15 @@
       array (
       ),
       'reference' => '53330f47520498c0ae1f61f7e2c90f55690c06a3',
+    ),
+    'phpoption/phpoption' => 
+    array (
+      'pretty_version' => '1.7.5',
+      'version' => '1.7.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '994ecccd8f3283ecf5ac33254543eb0ac946d525',
     ),
     'psr/http-message' => 
     array (
@@ -142,7 +160,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '8b2546a5debd2e2f3ca7bad214fcbefea1a27316',
+      'reference' => 'c1a51aaa5cb1028d81409582ff0c40c6a9313d2b',
     ),
     'symfony/deprecation-contracts' => 
     array (
@@ -161,6 +179,15 @@
       array (
       ),
       'reference' => 'a1f6218b29897ab52acba58cfa905b83625bef8d',
+    ),
+    'symfony/polyfill-ctype' => 
+    array (
+      'pretty_version' => 'v1.22.0',
+      'version' => '1.22.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c6c942b1ac76c82448322025e084cadc56048b4e',
     ),
     'symfony/polyfill-mbstring' => 
     array (
@@ -188,6 +215,15 @@
       array (
       ),
       'reference' => '934ac2720dcc878a47a45c986b483a7ee7193620',
+    ),
+    'vlucas/phpdotenv' => 
+    array (
+      'pretty_version' => 'v5.3.0',
+      'version' => '5.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b3eac5c7ac896e52deab4a99068e3f4ab12d9e56',
     ),
   ),
 );

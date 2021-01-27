@@ -23,6 +23,7 @@ class SpotifyStatsController
     $method = $_SERVER['REQUEST_METHOD'];
 
     $userId = AuthService::getUserId();
+
     if ($userId == null) {
       return;
     }

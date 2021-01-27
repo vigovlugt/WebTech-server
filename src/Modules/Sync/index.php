@@ -1,5 +1,6 @@
 <?php
 
+use Dotenv\Dotenv;
 use Ratchet\Http\HttpServer;
 use Ratchet\Server\IoServer;
 use Ratchet\WebSocket\WsServer;
@@ -27,6 +28,9 @@ require dirname(__DIR__) . '../../../vendor/autoload.php';
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
+
+$dotenv = Dotenv::createImmutable(__DIR__ . "/../../../");
+$dotenv->load();
 
 $connection = Connection::getConnection();
 $userRepository = new UserRepository($connection);
