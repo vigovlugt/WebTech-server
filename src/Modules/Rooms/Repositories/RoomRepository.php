@@ -158,12 +158,13 @@ class RoomRepository
 
   public function deleteAll()
   {
-    $queryStr = "DELETE FROM rooms WHERE 1;\n" .
-      "DELETE FROM roomQueueTracks WHERE 1;\n" .
+    $queryStr = "DELETE FROM roomChatMessages WHERE 1;\n" .
       "DELETE FROM roomQueueVotes WHERE 1;\n" .
-      "DELETE FROM roomChatMessages WHERE 1;";
+      "DELETE FROM roomQueueTracks WHERE 1;\n" .
+      "DELETE FROM rooms WHERE 1;";
 
     $this->connection->multi_query($queryStr);
+    echo $this->connection->error . PHP_EOL;
     while ($this->connection->next_result()) {
     }
   }

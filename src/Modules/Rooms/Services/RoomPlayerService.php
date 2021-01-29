@@ -107,6 +107,7 @@ class RoomPlayerService
       $room->playerState->isPlaying = false;
 
       $this->roomService->syncRoom($room);
+      $this->roomService->syncRooms();
 
       return;
     }

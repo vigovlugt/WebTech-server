@@ -47,7 +47,7 @@ class RoomService
       $data->name = "New room";
     }
 
-    $data->name = htmlspecialchars($data->name);
+    $data->name = htmlspecialchars(substr($data->name, 0, 50));
 
     echo "CREATING NEW ROOM: $data->name\n";
 

@@ -63,8 +63,8 @@ class AuthService
     $user = new User();
     $user->name = $spotifyUser->display_name;
     $user->spotifyId = $spotifyUser->id;
-    trigger_error($spotifyUser->images[0]->url);
-    $user->profileImageUrl = $spotifyUser->images[0]->url;
+
+    $user->profileImageUrl = isset($spotifyUser->images) && isset($spotifyUser->images[0]) ? $spotifyUser->images[0]->url : "https://agile114.science.uva.nl/images/profile-placeholder.png";
 
     return $this->userRepository->create($user);
   }

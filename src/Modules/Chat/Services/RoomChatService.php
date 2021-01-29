@@ -26,6 +26,10 @@ class RoomChatService
       return;
     }
 
+    if (trim($data->content) == "") {
+      return;
+    }
+
     if (strlen($data->content) > 1000) {
       $data->content = substr($data->content, 0, 997) . "...";
     }

@@ -24,7 +24,6 @@ class SpotifyAuthService
 
   public function redirectAuthorization()
   {
-    trigger_error(SpotifyAuthService::$clientId);
     $url = "https://accounts.spotify.com/authorize?"
       . "client_id=" . SpotifyAuthService::$clientId
       . "&response_type=code"
